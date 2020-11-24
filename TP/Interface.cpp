@@ -59,6 +59,12 @@ bool Interface::Menu_Jogo()
 	cout << "/tadquire<tipo>" << endl;
 	cout << "/tlista<nome>" << endl;
 	cout << "/tavanca" << endl;
+	cout << "/tgrava<nome>" << endl;
+	cout << "/tativa<nome>" << endl;
+	cout << "/tapaga<nome>" << endl;
+	cout << "/ttoma<qual><nome>" << endl;
+	cout << "/tmodifica<ouro|prod>N(DEBUG)" << endl;
+	cout << "/tfevento<nome_evento>(DEBUG)" << endl;
 	cout << "Insira um comando: ";
 	getline(cin, com_completo);
 	if(com == "conquista")
@@ -109,7 +115,33 @@ bool Interface::Menu_Jogo()
 								}
 								else
 								{
-									cout << "Comando invalido.Por Favor Insira um comando valido!!!" << endl;
+									if (com == "grava") 
+									{
+										// Grava estado do jogo
+									}
+									else
+									{
+										if (com == "ativa")
+										{
+											//Recupera um jogo gravado
+										}
+										else
+										{
+											if (com == "toma")
+											{
+												//Toma de assalto um determinado território ou tecnologia desde que esteja disponível
+											}
+											else
+											{
+												if (com == "modifica")
+												{
+													//Modifica dados de um imperio, quantidade de ouro ou de produtos
+												}
+												else
+													cout << "Comando Invalido. Por favor insira um comando valido!!!" << endl;
+											}
+										}
+									}
 								}
 							}
 						}
