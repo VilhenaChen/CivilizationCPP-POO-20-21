@@ -6,11 +6,7 @@ class Cofre
 	int num_ouro;
 
 public:
-	Cofre() 
-	{ 
-		capacidade_atual = 3; 
-		num_ouro = 0;
-	}
+	Cofre() : capacidade_atual(3), num_ouro(0) {}
 
 	//Gets
 	int getCapacidade_Max();

@@ -6,11 +6,7 @@ class Armazem
 	int num_produtos;
 
 public:
-	Armazem() 
-	{
-		capacidade_atual = 3;
-		num_produtos = 0;
-	}
+	Armazem() : capacidade_atual(3), num_produtos(0) {}
 
 	//Gets
 	int getCapacidade_Max();

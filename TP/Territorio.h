@@ -4,8 +4,9 @@
 
 using namespace std;
 
-class Territorios
+class Territorio
 {
+
 	string nome;
 	int resistencia;
 	int num_produtos_criados;
@@ -14,14 +15,7 @@ class Territorios
 
 
 public:
-	Territorios(string name, int resist, int prod, int ouro, int pontos)
-	{
-		nome = name;
-		resistencia = resist;
-		num_produtos_criados = prod;
-		num_ouro_criado = ouro;
-		pontos_vitoria = pontos;
-	}
+	Territorio(string name, int resist, int prod, int gold, int points) :nome(name), resistencia(resist), num_produtos_criados(prod), num_ouro_criado(gold), pontos_vitoria(points) {}
 
 	//GETS
 	string getNome();

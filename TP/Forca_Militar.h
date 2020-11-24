@@ -6,11 +6,7 @@ class Forca_Militar
 	int forca;
 
 public:
-	Forca_Militar()
-	{
-		limite_atual = 3;
-		forca = 0;
-	}
+	Forca_Militar() : limite_atual(3), forca(0) {}
 
 	//Gets
 	int getLimite_Max();

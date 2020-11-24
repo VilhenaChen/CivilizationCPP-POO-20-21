@@ -18,9 +18,6 @@
     <ClCompile Include="TP.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Territorios.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Interface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -36,11 +33,17 @@
     <ClCompile Include="Forca_Militar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Territorio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mundo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Logica.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Territorios.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Interface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -54,6 +57,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Forca_Militar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Territorio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mundo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Logica.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -138,3 +138,8 @@ void Imperio_Jogador::decreaseNumOuro(int dec)
 	}
 	forca_militar.setForca(ouro_atual);
 }
+
+void Imperio_Jogador::addTerritorio(Territorio* territory)
+{
+	territorios.push_back(territory);
+}

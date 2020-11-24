@@ -2,12 +2,19 @@
 #include "Forca_Militar.h"
 #include "Cofre.h"
 #include "Armazem.h"
+#include "Territorio.h"
+#include <iostream>
+#include <vector>
+
+
+using namespace std;
 
 class Imperio_Jogador
 {
 	Forca_Militar forca_militar;
 	Cofre cofre;
 	Armazem armazem;
+	vector<Territorio*> territorios;
 
 public:
 	
@@ -35,7 +42,8 @@ public:
 	void decreaseNumProdutos(int dec);
 	void decreaseNumOuro(int dec);
 
-
+	//add
+	void addTerritorio(Territorio* territory);
 	
 };
 

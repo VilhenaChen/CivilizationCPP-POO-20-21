@@ -144,7 +144,9 @@
     <ClCompile Include="Forca_Militar.cpp" />
     <ClCompile Include="Imperio_Jogador.cpp" />
     <ClCompile Include="Interface.cpp" />
-    <ClCompile Include="Territorios.cpp" />
+    <ClCompile Include="Logica.cpp" />
+    <ClCompile Include="Mundo.cpp" />
+    <ClCompile Include="Territorio.cpp" />
     <ClCompile Include="TP.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -153,7 +155,9 @@
     <ClInclude Include="Forca_Militar.h" />
     <ClInclude Include="Imperio_Jogador.h" />
     <ClInclude Include="Interface.h" />
-    <ClInclude Include="Territorios.h" />
+    <ClInclude Include="Logica.h" />
+    <ClInclude Include="Mundo.h" />
+    <ClInclude Include="Territorio.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
