@@ -11,7 +11,7 @@ bool Interface::Menu_Inicial()
 	cout << "\tcomeca" << endl;
 	cout << "\tsair" << endl;
 	cout << "Insira um comando: ";
-	getline(cin, com);
+	getline(cin, com_completo);
 	//DIVIDIR COMANDO
 	if (com == "carrega")
 	{

@@ -8,13 +8,20 @@ class Territorios
 {
 	string nome;
 	int resistencia;
-	int cria_produtos;
-	int cria_ouro;
+	int num_produtos_criados;
+	int num_ouro_criado;
 	int pontos_vitoria;
 
 
 public:
-	Territorios(string name, int resit, int prod, int ouro, int pontos) {}
+	Territorios(string name, int resist, int prod, int ouro, int pontos)
+	{
+		nome = name;
+		resistencia = resist;
+		num_produtos_criados = prod;
+		num_ouro_criado = ouro;
+		pontos_vitoria = pontos;
+	}
 
 	//GETS
 	string getNome();
@@ -22,12 +29,5 @@ public:
 	int getProdutos();
 	int getOuro();
 	int getPontos();
-
-	//SETS
-	void setNome(string name);
-	void setResistencia(int resist);
-	void setProdutos(int prod);
-	void setOuro(int ouro);
-	void setPontos(int pontos);
 };
 
