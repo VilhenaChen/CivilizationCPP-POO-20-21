@@ -19,5 +19,11 @@ public:
 
 	//add
 	void adicionaNovoTerritorioAoImperio(string nome);
+
+	//create
+	bool criaNTerritorios(string nome, int num);
+
+	//split
+	vector<string> spitComando(string comando);
 };
 

@@ -2,8 +2,10 @@
 
 bool Interface::Menu_Inicial()
 {
-	string com_completo, com;
+	string com_completo, com, nome_aux;
 	vector <string> vet_var_comando;
+	bool verifica;
+	int k=0, num_aux;
 	com.clear();//Limpar variavel
 	cout << "MENU INICIAL" << endl;
 	cout << "\tcarrega <nomeFicheiro>" << endl;
@@ -13,6 +15,9 @@ bool Interface::Menu_Inicial()
 	cout << "Insira um comando: ";
 	getline(cin, com_completo);
 	//DIVIDIR COMANDO
+	vet_var_comando=logica.spitComando(com_completo);
+	com = vet_var_comando[k];
+	k++;
 	if (com == "carrega")
 	{
 		cout << "LI\n";
@@ -22,8 +27,20 @@ bool Interface::Menu_Inicial()
 	{
 		if (com == "cria")
 		{
-			cout << "CRIA\n";
-			//Criar territorios
+			cout << "CRIA" << endl;
+			nome_aux = vet_var_comando[k];
+			k++;
+			num_aux = stoi(vet_var_comando[k]);
+			k++;
+			if (logica.criaNTerritorios(nome_aux,num_aux) == false) 
+			{
+				cout << "Erro ao criar territorios" << endl;
+				return false;
+			}
+			else 
+			{
+				cout << "Criados com sucesso" << endl;
+			}
 		}
 		else {
 			if (com == "comeca")
