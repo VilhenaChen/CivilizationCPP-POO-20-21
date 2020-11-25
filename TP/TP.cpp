@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Territorios.h"
 #include "Interface.h"
+#include "Logica.h"
 
 int main()
 {
@@ -9,7 +9,8 @@ int main()
     * pontos Vitoria = 0
     * Produacao = 1 prod 1 ouro
     */
-    Interface interfacea;
+    Logica logica;
+    Interface interfacea(logica);
     interfacea.Lanca_Menu_Inicial();
     return 0;
 }

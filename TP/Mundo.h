@@ -1,27 +1,35 @@
 #pragma once
 #include <vector>
 #include "Territorio.h"
-#include "Logica.h"
+#include <string>
 using namespace std;
 class Mundo
 {
 	vector<Territorio*> territorios;
-	Logica* logica;
+	vector<string> tipos_territorios;
 
 public:
-	Mundo(Logica* logic) : logica(logic)
+	Mundo()
 	{
+		fillTipos_Territorios();
 		territorios.push_back(new Territorio("Territorio Inicial1", 9, 1, 1, 0));
 	}
 
-	//verificaValidadeTipo
-	bool verificaValidadeTipo(string nome);
+	//fill
+	void fillTipos_Territorios();
 
-	//geraNomeConcat
+	//verify
+	bool verificaTipo_Territorio(string nome);
+	bool verificaExistenciaTerritorio(string nome);
+
+	//generate
 	string geraNomeConcat(string nome);
 
 	//add
 	bool addTerritorio(string nome);
+
+	//find
+	Territorio* encontraTerritorio(string nome);
 
 };
 

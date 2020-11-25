@@ -1,20 +1,23 @@
 #pragma once
 #include <vector>
 #include <string>
+#include "Mundo.h"
+#include "Imperio_Jogador.h"
+#include "Territorio.h"
+
 using namespace std;
+
 class Logica
 {
-	vector<string> tipos_territorios;
-public:
-	Logica() 
-	{
-		fillTipos_Territorios();
-	}
-	
-	//fill
-	void fillTipos_Territorios();
+	const int max_turnos = 12;
+	int turno;
+	Mundo mundo;
+	Imperio_Jogador imperio_jogador;
 
-	//verify
-	bool verificaTipo_Territorio(string nome);
+public:
+	Logica(): turno(0) {}
+
+	//add
+	void adicionaNovoTerritorioAoImperio(string nome);
 };
 

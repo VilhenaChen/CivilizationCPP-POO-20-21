@@ -18,6 +18,8 @@ class Imperio_Jogador
 
 public:
 	
+	Imperio_Jogador() {}
+
 	//gets
 	int getForcaMilitar();
 	int getLimiteMaxMilitar();

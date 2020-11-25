@@ -8,8 +8,11 @@ using namespace std;
 
 class Interface
 {
+	Logica logica;
 
 public:
+	Interface(Logica logic) : logica(logic) {}
+
 	bool Menu_Inicial();
 	bool Menu_Jogo();
 
