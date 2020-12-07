@@ -50,5 +50,8 @@ public:
 	//calculate
 	void calculaPontuacaoFinal();
 
+	//Game Operations
+	void conquista(string nome);
+
 };
 

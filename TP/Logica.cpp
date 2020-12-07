@@ -85,6 +85,8 @@ void Logica::preparaJogo()
 	adicionaNovoTerritorioAoImperio("Territorio Inicial");
 	turno = 1;
 	ano = 1;
+	imperio_jogador.atualizaProducaoOuro();
+	imperio_jogador.atualizaProducaoProdutos();
 }
 
 bool Logica::verificaSeTerritorioEstaConquistado(int posicao_mundo)
@@ -116,5 +118,30 @@ void Logica::calculaPontuacaoFinal()
 	if (verificaSeTodosOsTerritoriosEstaoConquistados() == true) 
 	{
 		pontuacao_final = (pontuacao_final + 3);
+	}
+}
+
+void Logica::conquista(string nome) {
+	int forca = 0;
+	imperio_jogador.geraFatorSorte();
+	if (mundo.verificaExistenciaTerritorio(nome) == true)
+	{
+		if (imperio_jogador.verificaSeTerritorioEstaConquistado(nome) == false) {
+			forca = imperio_jogador.getFatorSorte() + imperio_jogador.getForcaMilitar();
+			if(mundo.encontraTerritorio(nome)->getResistencia() < forca) {
+				imperio_jogador.addTerritorio(mundo.encontraTerritorio(nome));
+				cout << "Territorio Conquistado" << " Forca Total: " << forca << " Resistencia: " << mundo.encontraTerritorio(nome)->getResistencia() << endl;
+			} else {
+				cout << "Territorio nao conquistado\n " << " Forca Total: " << forca << " Resistencia: "<< mundo.encontraTerritorio(nome)->getResistencia() <<endl;
+				imperio_jogador.decreaseForcaMilitar();
+			}
+		}
+		else {
+			cout << "Territorio ja conquistado" << endl;
+		}
+	}
+	else 
+	{
+		cout << "Territorio nao existe" << endl;
 	}
 }

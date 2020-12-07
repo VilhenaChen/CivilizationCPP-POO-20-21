@@ -45,8 +45,8 @@ public:
 	int getProducaoOuro();
 	int getProducaoProdutos();
 
-	//sets
-	void setFatorSorte(int fator_sorte);
+	//gera
+	void geraFatorSorte();
 
 	//increases
 	void increaseForcaMilitar();

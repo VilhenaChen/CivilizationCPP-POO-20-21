@@ -96,11 +96,11 @@ int Imperio_Jogador::getProducaoProdutos()
 	return producao_produtos;
 }
 
-void Imperio_Jogador::setFatorSorte(int fator_sorte)
-{
-	this->fator_sorte = fator_sorte;
-}
 
+void Imperio_Jogador::geraFatorSorte() {
+	srand(time(nullptr));
+	fator_sorte = rand() % 7;
+}
 void Imperio_Jogador::increaseForcaMilitar()
 {
 	int forca_atual = forca_militar.getForca();
@@ -224,7 +224,7 @@ bool Imperio_Jogador::verificaSeTerritorioEstaConquistado(string nome)
 void Imperio_Jogador::atualizaProducaoOuro()
 {
 	int ouro = getProducaoOuro();
-	for(int i = 0; territorios.size(); i++) {
+	for(int i = 0; i < territorios.size(); i++) {
 		ouro = ouro + getOuroTerritorio(i);
 	}
 	producao_ouro = ouro;
@@ -233,7 +233,7 @@ void Imperio_Jogador::atualizaProducaoOuro()
 void Imperio_Jogador::atualizaProducaoProdutos()
 {
 	int produtos = getProducaoProdutos();
-	for(int i = 0; territorios.size(); i++) {
+	for(int i = 0; i < territorios.size(); i++) {
 		produtos = produtos + getProdutosTerritorio(i);
 	}
 	producao_produtos = produtos;

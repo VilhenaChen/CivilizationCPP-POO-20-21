@@ -61,12 +61,13 @@ bool Interface::Menu_Inicial()
 				{
 					cout << "COMECA\n";
 					logica.preparaJogo();
+					lista();
 					return true;
 				}
 				else
 				{
 					if (com == "sair") {
-						exit(0); //Sair do jogo
+						exit(0);
 					}
 					else
 					{
@@ -98,7 +99,7 @@ bool Interface::Menu_Primeira_Fase() //Conquista/Passa
 	k++;
 	if(com == "conquista")
 	{
-		//Conquista
+		logica.conquista(vet_var_comando[k]);
 		return true;
 	}
 	else
@@ -228,6 +229,8 @@ void Interface::Lanca_Menu_Jogo()
 		if (logica.getAno() == 1 || (logica.getAno()==2 && logica.getTurno() < 6)) 
 		{
 			logica.increaseTurno();
+			logica.getImperioJogador()->atualizaProducaoOuro();
+			logica.getImperioJogador()->atualizaProducaoProdutos();
 		}
 		else 
 		{
