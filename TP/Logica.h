@@ -38,7 +38,7 @@ public:
 	bool criaNTerritorios(string nome, int num);
 
 	//split
-	vector<string> spitComando(string comando);
+	vector<string> splitComando(string comando);
 
 	//prepare
 	void preparaJogo();

@@ -28,5 +28,6 @@ public:
 	//Listas
 	void listaInicial();
 	void lista();
+	void listaTerritorio(string nome);
 };
 

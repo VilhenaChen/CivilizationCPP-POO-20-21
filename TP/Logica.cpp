@@ -68,7 +68,7 @@ bool Logica::criaNTerritorios(string nome, int num)
 	return true;
 }
 
-vector<string> Logica::spitComando(string comando)
+vector<string> Logica::splitComando(string comando)
 {
 	vector<string> tokens;
 	stringstream com(comando);

@@ -71,6 +71,9 @@ public:
 	//Update
 	void atualizaProducaoOuro();
 	void atualizaProducaoProdutos();
+
+	//find
+	Territorio* encontraTerritorio(string nome);
 	
 };
 

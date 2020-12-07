@@ -238,3 +238,16 @@ void Imperio_Jogador::atualizaProducaoProdutos()
 	}
 	producao_produtos = produtos;
 }
+
+Territorio* Imperio_Jogador::encontraTerritorio(string nome)
+{
+	for (int i = 0; i < territorios.size(); i++)
+	{
+		if (territorios[i]->getNome() == nome)
+		{
+			return territorios[i];
+		}
+	}
+	return nullptr;
+}
+

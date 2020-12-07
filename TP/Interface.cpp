@@ -16,7 +16,7 @@ bool Interface::Menu_Inicial()
 	cout << "Insira um comando: ";
 	getline(cin, com_completo);
 	//DIVIDIR COMANDO
-	vet_var_comando=logica.spitComando(com_completo);
+	vet_var_comando=logica.splitComando(com_completo);
 	com = vet_var_comando[k];
 	k++;
 	if (com == "carrega")
@@ -52,7 +52,7 @@ bool Interface::Menu_Inicial()
 				}
 				else
 				{
-					//lista teritorio
+					listaTerritorio(vet_var_comando[k]);
 				}
 			}
 			else 
@@ -94,7 +94,7 @@ bool Interface::Menu_Primeira_Fase() //Conquista/Passa
 	cout << "Insira um comando: ";
 	getline(cin, com_completo);
 	//DIVIDIR COMANDO
-	vet_var_comando = logica.spitComando(com_completo);
+	vet_var_comando = logica.splitComando(com_completo);
 	com = vet_var_comando[k];
 	k++;
 	if(com == "conquista")
@@ -120,7 +120,7 @@ bool Interface::Menu_Primeira_Fase() //Conquista/Passa
 				}
 				else 
 				{
-					//lista teritorio
+					listaTerritorio(vet_var_comando[k]);
 				}
 			}
 			else
@@ -142,7 +142,9 @@ bool Interface::Menu_Primeira_Fase() //Conquista/Passa
 bool Interface::Menu_Segunda_Fase() //Recolha de produtos e ouro
 {
 	string com_completo, com;
+	int k = 0;
 	vector <string> vet_var_comando;
+	com.clear();//Limpar variavel
 	cout << "2 Fase do Turno "<< logica.getTurno() << " Ano " << logica.getAno() <<" (Recolha de Produtos/Ouro)" << endl;
 	cout << "\nMenu" << endl;
 	cout << "\tlista<nome>" << endl;
@@ -159,7 +161,11 @@ bool Interface::Menu_Segunda_Fase() //Recolha de produtos e ouro
 	cout << "\tfevento<nome_evento>(DEBUG)" << endl;
 	*/
 	cout << "Insira um comando: ";
-	getline(cin, com);
+	getline(cin, com_completo);
+	//DIVIDIR COMANDO
+	vet_var_comando = logica.splitComando(com_completo);
+	com = vet_var_comando[k];
+	k++;
 	if (com == "lista") {
 		if (vet_var_comando.size() != 2)
 		{
@@ -167,7 +173,7 @@ bool Interface::Menu_Segunda_Fase() //Recolha de produtos e ouro
 		}
 		else
 		{
-			//lista teritorio
+			listaTerritorio(vet_var_comando[k]);
 		}
 	} 
 	else {
@@ -312,4 +318,26 @@ void Interface::lista() {
 		cout << "Pontuacao Final: " << logica.getPontuacaoFinal() << endl;
 	}
 	
+}
+
+void Interface::listaTerritorio(string nome)
+{
+	if(logica.getMundo()->verificaExistenciaTerritorio(nome) == true) {
+		if(logica.getImperioJogador()->verificaSeTerritorioEstaConquistado(nome) == true) {
+			cout << "Nome: " << logica.getImperioJogador()->encontraTerritorio(nome)->getNome() << endl; 
+			cout << "\t- Resistência: " << logica.getImperioJogador()->encontraTerritorio(nome)->getResistencia() << endl;
+			cout << "\t- Producao:" << endl; 
+			cout << "\t\t- Ouro: " << logica.getImperioJogador()->encontraTerritorio(nome)->getOuro() << endl; 
+			cout << "\t\t- Produtos: "<< logica.getImperioJogador()->encontraTerritorio(nome)->getProdutos() << endl;
+		}
+		else 
+		{
+			cout << "Nome: " << logica.getMundo()->encontraTerritorio(nome)->getNome() << endl; 
+			cout << "\t- Resistência: " << logica.getMundo()->encontraTerritorio(nome)->getResistencia() << endl;
+		}
+	}
+	else
+	{
+		cout << "O territorio " << nome << " nao existe" << endl;
+	}
 }
