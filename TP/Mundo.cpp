@@ -1,5 +1,23 @@
 #include "Mundo.h"
 
+int Mundo::getTamTerritorios()
+{
+	return territorios.size();
+}
+
+string Mundo::getNomeTerritorio(int posicao)
+{
+	string name = territorios[posicao]->getNome();
+	return name;
+}
+
+int Mundo::getResistenciaTerritorio(int posicao)
+{
+	int resist = territorios[posicao]->getResistencia();
+	return resist;
+}
+
+
 void Mundo::fillTipos_Territorios()
 {
 	tipos_territorios.push_back("Planicie");
@@ -36,6 +54,15 @@ bool Mundo::verificaExistenciaTerritorio(string nome)
 	return false;
 }
 
+bool Mundo::verificaSeExistemTerritorios()
+{
+	if (territorios.size() == 0) 
+	{
+		return false;
+	}
+	return true;
+}
+
 string Mundo::geraNomeConcat(string nome)
 {
 	string nome_gerado, num_str;
@@ -45,12 +72,13 @@ string Mundo::geraNomeConcat(string nome)
 	{
 		num++;
 		num_str = to_string(num);
-		nome_gerado = nome.append(num_str);
+		nome_gerado = nome;
+		nome_gerado = nome_gerado.append(num_str);
 		existe = false;
 
-		for (int i = 0; i < tipos_territorios.size(); i++) 
+		for (int i = 0; i < territorios.size(); i++) 
 		{
-			if (nome_gerado == tipos_territorios[i])
+			if (nome_gerado == territorios[i]->getNome())
 			{
 				existe = true;
 			}

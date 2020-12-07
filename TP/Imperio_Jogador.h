@@ -5,12 +5,17 @@
 #include "Territorio.h"
 #include <iostream>
 #include <vector>
+#include <cstdlib>
+#include <ctime>
 
 
 using namespace std;
 
 class Imperio_Jogador
 {
+	int fator_sorte;
+	int producao_ouro;
+	int producao_produtos;
 	Forca_Militar forca_militar;
 	Cofre cofre;
 	Armazem armazem;
@@ -18,9 +23,10 @@ class Imperio_Jogador
 
 public:
 	
-	Imperio_Jogador() {}
+	Imperio_Jogador(): fator_sorte(0), producao_ouro(0), producao_produtos(0){}
 
 	//gets
+	int getFatorSorte();
 	int getForcaMilitar();
 	int getLimiteMaxMilitar();
 	int getLimiteAtualMilitar();
@@ -30,6 +36,17 @@ public:
 	int getNumOuro();
 	int getLimiteMaxOuro();
 	int getLimiteAtualOuro();
+	int getTamTerritorios();
+	string getNomeTerritorio(int posicao);
+	int getResistenciaTerritorio(int posicao);
+	int getOuroTerritorio(int posicao);
+	int getProdutosTerritorio(int posicao);
+	int getPontosVitoriaTerritorio(int posicao);
+	int getProducaoOuro();
+	int getProducaoProdutos();
+
+	//sets
+	void setFatorSorte(int fator_sorte);
 
 	//increases
 	void increaseForcaMilitar();
@@ -46,6 +63,14 @@ public:
 
 	//add
 	void addTerritorio(Territorio* territory);
+
+	//verify
+	bool verificaSeVetorTerritoriosEstaVazio();
+	bool verificaSeTerritorioEstaConquistado(string nome);
+
+	//Update
+	void atualizaProducaoOuro();
+	void atualizaProducaoProdutos();
 	
 };
 

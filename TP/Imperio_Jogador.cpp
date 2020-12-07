@@ -1,5 +1,10 @@
 #include "Imperio_Jogador.h"
 
+int Imperio_Jogador::getFatorSorte()
+{
+	return fator_sorte;
+}
+
 int Imperio_Jogador::getForcaMilitar()
 {
 	return forca_militar.getForca();
@@ -43,6 +48,57 @@ int Imperio_Jogador::getLimiteMaxOuro()
 int Imperio_Jogador::getLimiteAtualOuro()
 {
 	return cofre.getCapacidade_Atual();
+}
+
+int Imperio_Jogador::getTamTerritorios()
+{
+	return territorios.size();
+}
+
+string Imperio_Jogador::getNomeTerritorio(int posicao)
+{
+	string nome = territorios[posicao]->getNome();
+	return nome;
+}
+
+int Imperio_Jogador::getResistenciaTerritorio(int posicao)
+{
+	int resist = territorios[posicao]->getResistencia();
+	return resist;
+}
+
+int Imperio_Jogador::getOuroTerritorio(int posicao)
+{
+	int gold = territorios[posicao]->getOuro();
+	return gold;
+}
+
+int Imperio_Jogador::getProdutosTerritorio(int posicao)
+{
+	int products = territorios[posicao]->getProdutos();
+	return products;
+}
+
+int Imperio_Jogador::getPontosVitoriaTerritorio(int posicao)
+{
+	int points = territorios[posicao]->getPontos();
+	return points;
+
+}
+
+int Imperio_Jogador::getProducaoOuro()
+{
+	return producao_ouro;
+}
+
+int Imperio_Jogador::getProducaoProdutos()
+{
+	return producao_produtos;
+}
+
+void Imperio_Jogador::setFatorSorte(int fator_sorte)
+{
+	this->fator_sorte = fator_sorte;
 }
 
 void Imperio_Jogador::increaseForcaMilitar()
@@ -142,4 +198,43 @@ void Imperio_Jogador::decreaseNumOuro(int dec)
 void Imperio_Jogador::addTerritorio(Territorio* territory)
 {
 	territorios.push_back(territory);
+}
+
+bool Imperio_Jogador::verificaSeVetorTerritoriosEstaVazio()
+{
+	if (territorios.size() == 0) 
+	{
+		return true;
+	}
+	return false;
+}
+
+bool Imperio_Jogador::verificaSeTerritorioEstaConquistado(string nome)
+{
+	for (int i = 0; i < territorios.size(); i++) 
+	{
+		if (territorios[i]->getNome() == nome) 
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+void Imperio_Jogador::atualizaProducaoOuro()
+{
+	int ouro = getProducaoOuro();
+	for(int i = 0; territorios.size(); i++) {
+		ouro = ouro + getOuroTerritorio(i);
+	}
+	producao_ouro = ouro;
+}
+
+void Imperio_Jogador::atualizaProducaoProdutos()
+{
+	int produtos = getProducaoProdutos();
+	for(int i = 0; territorios.size(); i++) {
+		produtos = produtos + getProdutosTerritorio(i);
+	}
+	producao_produtos = produtos;
 }

@@ -12,8 +12,14 @@ public:
 	Mundo()
 	{
 		fillTipos_Territorios();
-		territorios.push_back(new Territorio("Territorio Inicial1", 9, 1, 1, 0));
+		territorios.push_back(new Territorio("Territorio Inicial", 9, 1, 1, 0));
 	}
+
+	//get
+	int getTamTerritorios();
+	string getNomeTerritorio(int posicao);
+	int getResistenciaTerritorio(int posicao);
+
 
 	//fill
 	void fillTipos_Territorios();
@@ -21,6 +27,7 @@ public:
 	//verify
 	bool verificaTipo_Territorio(string nome);
 	bool verificaExistenciaTerritorio(string nome);
+	bool verificaSeExistemTerritorios();
 
 	//generate
 	string geraNomeConcat(string nome);

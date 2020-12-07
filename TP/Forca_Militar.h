@@ -1,4 +1,7 @@
 #pragma once
+#include <cstdlib>
+#include <ctime>
+
 class Forca_Militar
 {
 	const int limite_max=5;
@@ -6,7 +9,11 @@ class Forca_Militar
 	int forca;
 
 public:
-	Forca_Militar() : limite_atual(3), forca(0) {}
+	Forca_Militar() : limite_atual(3) 
+	{
+		srand(time(nullptr));
+		forca = rand() % 4;
+	}
 
 	//Gets
 	int getLimite_Max();
