@@ -23,5 +23,7 @@ public:
 	int getProdutos();
 	int getOuro();
 	int getPontos();
+
+	~Territorio() {}
 };
 

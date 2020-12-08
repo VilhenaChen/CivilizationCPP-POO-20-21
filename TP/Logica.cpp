@@ -106,7 +106,7 @@ void Logica::carrega(string nomefich)
 
 void Logica::preparaJogo()
 {
-	adicionaNovoTerritorioAoImperio("Territorio Inicial");
+	adicionaNovoTerritorioAoImperio("TerritorioInicial");
 	turno = 1;
 	ano = 1;
 	imperio_jogador.atualizaProducaoOuro();

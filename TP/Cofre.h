@@ -16,5 +16,7 @@ public:
 	//Sets
 	void setCapacidade_Atual();
 	void setNum_ouro(int ouro);
+
+	~Cofre() {}
 };
 

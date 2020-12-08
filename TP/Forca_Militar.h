@@ -23,5 +23,7 @@ public:
 	//Sets
 	void setLimite_Atual();
 	void setForca(int force);
+
+	~Forca_Militar() {}
 };
 

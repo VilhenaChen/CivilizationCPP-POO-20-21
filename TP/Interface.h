@@ -9,10 +9,10 @@ using namespace std;
 
 class Interface
 {
-	Logica logica;
+	Logica* logica;
 
 public:
-	Interface(Logica logic) : logica(logic) {}
+	Interface(Logica* logic) : logica(logic) {}
 
 	//Menus
 	bool Menu_Inicial();
@@ -29,5 +29,8 @@ public:
 	void listaInicial();
 	void lista();
 	void listaTerritorio(string nome);
+
+	~Interface() {}
+
 };
 

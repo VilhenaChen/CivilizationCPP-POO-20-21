@@ -57,5 +57,10 @@ public:
 	//Game Operations
 	bool conquista(string nome);
 
+	~Logica() 
+	{
+		mundo.~Mundo();
+		imperio_jogador.~Imperio_Jogador();
+	}
 };
 

@@ -12,7 +12,7 @@ public:
 	Mundo()
 	{
 		fillTipos_Territorios();
-		territorios.push_back(new Territorio("Territorio Inicial", 9, 1, 1, 0));
+		territorios.push_back(new Territorio("TerritorioInicial", 9, 1, 1, 0));
 	}
 
 	//get
@@ -38,5 +38,14 @@ public:
 	//find
 	Territorio* encontraTerritorio(string nome);
 
+
+	~Mundo() 
+	{
+		for (auto it = territorios.begin(); it < territorios.end(); it++) 
+		{
+			delete* it;
+			territorios.erase(it);
+		}
+	}
 };
 
