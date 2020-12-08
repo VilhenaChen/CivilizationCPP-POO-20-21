@@ -15,6 +15,11 @@ bool Interface::Menu_Inicial()
 	cout << "\tsair" << endl;
 	cout << "Insira um comando: ";
 	getline(cin, com_completo);
+	if (com_completo.empty()) 
+	{
+		cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
+		return false;
+	}
 	//DIVIDIR COMANDO
 	vet_var_comando=logica->splitComando(com_completo);
 	com = vet_var_comando[k];
@@ -28,7 +33,7 @@ bool Interface::Menu_Inicial()
 		}
 		if (vet_var_comando.size() < 2)
 		{
-			cout << "Comando Invalido. Os argumentos inseridos são insuficientes" << endl;
+			cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
 			return false;
 		}
 		nome_aux = vet_var_comando[k];
@@ -45,11 +50,16 @@ bool Interface::Menu_Inicial()
 			}
 			if (vet_var_comando.size() < 3)
 			{
-				cout << "Comando Invalido. Os argumentos inseridos são insuficientes" << endl;
+				cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
 				return false;
 			}
 			nome_aux = vet_var_comando[k];
 			k++;
+			if (!isdigit(vet_var_comando[k][0])) 
+			{
+				cout << "Comando Invalido. O numero de territorios deve ser um inteiro" << endl;
+				return false;
+			}
 			num_aux = stoi(vet_var_comando[k]);
 			k++;
 			if (logica->criaNTerritorios(nome_aux,num_aux) == false) 
@@ -72,7 +82,7 @@ bool Interface::Menu_Inicial()
 				}
 				if (vet_var_comando.size() < 1)
 				{
-					cout << "Comando Invalido. Os argumentos inseridos são insuficientes" << endl;
+					cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
 					return false;
 				}
 				if (vet_var_comando.size() != 2)
@@ -95,7 +105,7 @@ bool Interface::Menu_Inicial()
 					}
 					if (vet_var_comando.size() < 1)
 					{
-						cout << "Comando Invalido. Os argumentos inseridos são insuficientes" << endl;
+						cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
 						return false;
 					}
 					if (logica->getMundo()->getTamTerritorios() >= 5) {
@@ -119,7 +129,7 @@ bool Interface::Menu_Inicial()
 						}
 						if (vet_var_comando.size() < 1)
 						{
-							cout << "Comando Invalido. Os argumentos inseridos são insuficientes" << endl;
+							cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
 							return false;
 						}
 						exit(0);
@@ -148,6 +158,11 @@ bool Interface::Menu_Primeira_Fase() //Conquista/Passa
 	cout << "\tsair" << endl;
 	cout << "Insira um comando: ";
 	getline(cin, com_completo);
+	if (com_completo.empty())
+	{
+		cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
+		return false;
+	}
 	//DIVIDIR COMANDO
 	vet_var_comando = logica->splitComando(com_completo);
 	com = vet_var_comando[k];
@@ -161,7 +176,7 @@ bool Interface::Menu_Primeira_Fase() //Conquista/Passa
 		}
 		if (vet_var_comando.size() < 2)
 		{
-			cout << "Comando Invalido. Os argumentos inseridos são insuficientes" << endl;
+			cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
 			return false;
 		}
 		if (logica->conquista(vet_var_comando[k]) == true) {
@@ -180,7 +195,7 @@ bool Interface::Menu_Primeira_Fase() //Conquista/Passa
 			}
 			if (vet_var_comando.size() < 1)
 			{
-				cout << "Comando Invalido. Os argumentos inseridos são insuficientes" << endl;
+				cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
 				return false;
 			}
 			return true;
@@ -197,7 +212,7 @@ bool Interface::Menu_Primeira_Fase() //Conquista/Passa
 				}
 				if (vet_var_comando.size() < 1)
 				{
-					cout << "Comando Invalido. Os argumentos inseridos são insuficientes" << endl;
+					cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
 					return false;
 				}
 				if (vet_var_comando.size() != 2) 
@@ -220,7 +235,7 @@ bool Interface::Menu_Primeira_Fase() //Conquista/Passa
 					}
 					if (vet_var_comando.size() < 1)
 					{
-						cout << "Comando Invalido. Os argumentos inseridos são insuficientes" << endl;
+						cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
 						return false;
 					}
 					exit(0);
@@ -258,6 +273,11 @@ bool Interface::Menu_Segunda_Fase() //Recolha de produtos e ouro
 	*/
 	cout << "Insira um comando: ";
 	getline(cin, com_completo);
+	if (com_completo.empty())
+	{
+		cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
+		return false;
+	}
 	//DIVIDIR COMANDO
 	vet_var_comando = logica->splitComando(com_completo);
 	com = vet_var_comando[k];
@@ -270,7 +290,7 @@ bool Interface::Menu_Segunda_Fase() //Recolha de produtos e ouro
 		}
 		if (vet_var_comando.size() < 1)
 		{
-			cout << "Comando Invalido. Os argumentos inseridos são insuficientes" << endl;
+			cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
 			return false;
 		}
 		if (vet_var_comando.size() != 2)
@@ -291,7 +311,7 @@ bool Interface::Menu_Segunda_Fase() //Recolha de produtos e ouro
 			}
 			if (vet_var_comando.size() < 1)
 			{
-				cout << "Comando Invalido. Os argumentos inseridos são insuficientes" << endl;
+				cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
 				return false;
 			}
 			return true;
@@ -304,7 +324,7 @@ bool Interface::Menu_Segunda_Fase() //Recolha de produtos e ouro
 			}
 			if (vet_var_comando.size() < 1)
 			{
-				cout << "Comando Invalido. Os argumentos inseridos são insuficientes" << endl;
+				cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
 				return false;
 			}
 			if(com == "sair") {
