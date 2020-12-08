@@ -26,7 +26,7 @@ void Mundo::fillTipos_Territorios()
 	tipos_territorios.push_back("Mina");
 	tipos_territorios.push_back("Duna");
 	tipos_territorios.push_back("Castelo");
-	tipos_territorios.push_back("Refugio dos Piratas");
+	tipos_territorios.push_back("RefugioDosPiratas");
 	tipos_territorios.push_back("Pescaria");
 }
 

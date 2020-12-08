@@ -52,10 +52,6 @@ void Logica::adicionaNovoTerritorioAoImperio(string nome)
 bool Logica::criaNTerritorios(string nome, int num)
 {
 	bool criou;
-	if (nome == "Refugio")
-	{
-		nome = "Refugio dos Piratas";
-	}
 	for (int i = 0; i < num; i++) 
 	{
 		criou = true;
