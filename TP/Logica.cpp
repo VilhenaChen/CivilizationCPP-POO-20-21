@@ -52,7 +52,7 @@ void Logica::adicionaNovoTerritorioAoImperio(string nome)
 bool Logica::criaNTerritorios(string nome, int num)
 {
 	bool criou;
-	if (nome == "refugio")
+	if (nome == "Refugio")
 	{
 		nome = "Refugio dos Piratas";
 	}
@@ -78,6 +78,30 @@ vector<string> Logica::splitComando(string comando)
 		tokens.push_back(token);
 	}
 	return tokens;
+}
+
+void Logica::carrega(string nomefich)
+{
+	string linha;
+	int num;
+	vector <string> vet_var_comando;
+	ifstream ficheiro(nomefich);
+	if (ficheiro.is_open()) 
+	{
+		while (getline(ficheiro, linha))
+		{
+			vet_var_comando = splitComando(linha);
+			if (vet_var_comando[0] == "cria") {
+				num = stoi(vet_var_comando[2]);
+				criaNTerritorios(vet_var_comando[1], num);
+			}
+		}
+		ficheiro.close();
+	}
+	else 
+	{
+		cout << "Erro ao abrir ficheiro" << endl;
+	}
 }
 
 void Logica::preparaJogo()
@@ -121,7 +145,7 @@ void Logica::calculaPontuacaoFinal()
 	}
 }
 
-void Logica::conquista(string nome) {
+bool Logica::conquista(string nome) {
 	int forca = 0;
 	imperio_jogador.geraFatorSorte();
 	if (mundo.verificaExistenciaTerritorio(nome) == true)
@@ -135,13 +159,16 @@ void Logica::conquista(string nome) {
 				cout << "Territorio nao conquistado\n " << " Forca Total: " << forca << " Resistencia: "<< mundo.encontraTerritorio(nome)->getResistencia() <<endl;
 				imperio_jogador.decreaseForcaMilitar();
 			}
+			return true;
 		}
 		else {
 			cout << "Territorio ja conquistado" << endl;
+			return false;
 		}
 	}
 	else 
 	{
 		cout << "Territorio nao existe" << endl;
+		return false;
 	}
 }

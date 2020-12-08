@@ -129,7 +129,7 @@ void Imperio_Jogador::increaseNumProdutos(int inc)
 	{
 		produto_atual = capacidade;
 	}
-	forca_militar.setForca(produto_atual);
+	armazem.setNum_produtos(produto_atual);
 }
 
 void Imperio_Jogador::increaseLimiteAtualProdutos()
@@ -149,7 +149,7 @@ void Imperio_Jogador::increaseNumOuro(int inc)
 	{
 		ouro_atual = capacidade;
 	}
-	forca_militar.setForca(ouro_atual);
+	cofre.setNum_ouro(ouro_atual);
 }
 
 void Imperio_Jogador::increaseLimiteAtualOuro()
@@ -223,7 +223,7 @@ bool Imperio_Jogador::verificaSeTerritorioEstaConquistado(string nome)
 
 void Imperio_Jogador::atualizaProducaoOuro()
 {
-	int ouro = getProducaoOuro();
+	int ouro = 0;
 	for(int i = 0; i < territorios.size(); i++) {
 		ouro = ouro + getOuroTerritorio(i);
 	}
@@ -232,7 +232,7 @@ void Imperio_Jogador::atualizaProducaoOuro()
 
 void Imperio_Jogador::atualizaProducaoProdutos()
 {
-	int produtos = getProducaoProdutos();
+	int produtos = 0;
 	for(int i = 0; i < territorios.size(); i++) {
 		produtos = produtos + getProdutosTerritorio(i);
 	}

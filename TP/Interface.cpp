@@ -21,14 +21,13 @@ bool Interface::Menu_Inicial()
 	k++;
 	if (com == "carrega")
 	{
-		cout << "LI\n";
-		//ler ficheiro
+		nome_aux = vet_var_comando[k];
+		logica.carrega(nome_aux);
 	}
 	else
 	{
 		if (com == "cria")
 		{
-			cout << "CRIA" << endl;
 			nome_aux = vet_var_comando[k];
 			k++;
 			num_aux = stoi(vet_var_comando[k]);
@@ -59,10 +58,16 @@ bool Interface::Menu_Inicial()
 			{
 				if (com == "comeca")
 				{
-					cout << "COMECA\n";
-					logica.preparaJogo();
-					lista();
-					return true;
+					if (logica.getMundo()->getTamTerritorios() > 5) {
+						logica.preparaJogo();
+						lista();
+						return true;
+					}
+					else
+					{
+						cout << "Insira no minimo 5 Territorios!!!" << endl;
+						return false;
+					}
 				}
 				else
 				{
@@ -99,8 +104,10 @@ bool Interface::Menu_Primeira_Fase() //Conquista/Passa
 	k++;
 	if(com == "conquista")
 	{
-		logica.conquista(vet_var_comando[k]);
-		return true;
+		if (logica.conquista(vet_var_comando[k]) == true) {
+			return true;
+		}
+		return false;
 	}
 	else
 	{
@@ -214,7 +221,6 @@ void Interface::Lanca_Menu_Inicial()
 	{
 		flag = Menu_Inicial();
 	} while (flag != true);
-	//INFORMACOES
 	Lanca_Menu_Jogo();
 }
 
@@ -228,6 +234,8 @@ void Interface::Lanca_Menu_Jogo()
 			flag = Menu_Primeira_Fase();
 		} while (flag != true);
 		flag = false;
+		logica.getImperioJogador()->increaseNumOuro(logica.getImperioJogador()->getProducaoOuro());
+		logica.getImperioJogador()->increaseNumProdutos(logica.getImperioJogador()->getProducaoProdutos());
 		do
 		{
 			flag = Menu_Segunda_Fase();
@@ -262,7 +270,7 @@ void Interface::listaInicial()
 		cout << "\tTerritorios : " << endl;
 		for (int i = 0; i < logica.getMundo()->getTamTerritorios(); i++)
 		{
-			cout << "\t\tNome: " << logica.getMundo()->getNomeTerritorio(i) << " Resistência: " << logica.getMundo()->getResistenciaTerritorio(i) << endl;
+			cout << "\t\tNome: " << logica.getMundo()->getNomeTerritorio(i) << " Resistencia: " << logica.getMundo()->getResistenciaTerritorio(i) << endl;
 		}
 	}
 	cout << "***************************" << endl;
@@ -271,7 +279,7 @@ void Interface::listaInicial()
 void Interface::lista() {
 	cout << "***************************" << endl;
 	cout << "Dados do jogo:" << endl;
-	cout << "\t Ano: " << logica.getAno() << "Turno: " << logica.getTurno() << endl;
+	cout << "\t Ano: " << logica.getAno() << " Turno: " << logica.getTurno() << endl;
 	cout << "\t Fator Sorte: " << logica.getImperioJogador()->getFatorSorte() << endl;
 
 	cout << "***************************" << endl;
@@ -286,7 +294,7 @@ void Interface::lista() {
 		for (int i = 0; i < logica.getImperioJogador()->getTamTerritorios(); i++)
 		{ 
 			cout << "\t\tNome: " << logica.getImperioJogador()->getNomeTerritorio(i) << endl; 
-			cout << "\t\t\t- Resistência: " << logica.getImperioJogador()->getResistenciaTerritorio(i) << endl;
+			cout << "\t\t\t- Resistencia: " << logica.getImperioJogador()->getResistenciaTerritorio(i) << endl;
 			cout << "\t\t\t- Producao:" << endl; 
 			cout << "\t\t\t\t- Ouro: " << logica.getImperioJogador()->getOuroTerritorio(i) << endl; 
 			cout << "\t\t\t\t- Produtos: "<< logica.getImperioJogador()->getProdutosTerritorio(i) << endl;
@@ -310,7 +318,7 @@ void Interface::lista() {
 	{
 		if (logica.verificaSeTerritorioEstaConquistado(i) == false) 
 		{
-			cout << "\tNome: " << logica.getMundo()->getNomeTerritorio(i) << " Resistência: " << logica.getMundo()->getResistenciaTerritorio(i) << endl;
+			cout << "\tNome: " << logica.getMundo()->getNomeTerritorio(i) << " Resistencia: " << logica.getMundo()->getResistenciaTerritorio(i) << endl;
 		}
 	}
 	cout << "***************************" << endl;
@@ -325,7 +333,7 @@ void Interface::listaTerritorio(string nome)
 	if(logica.getMundo()->verificaExistenciaTerritorio(nome) == true) {
 		if(logica.getImperioJogador()->verificaSeTerritorioEstaConquistado(nome) == true) {
 			cout << "Nome: " << logica.getImperioJogador()->encontraTerritorio(nome)->getNome() << endl; 
-			cout << "\t- Resistência: " << logica.getImperioJogador()->encontraTerritorio(nome)->getResistencia() << endl;
+			cout << "\t- Resistencia: " << logica.getImperioJogador()->encontraTerritorio(nome)->getResistencia() << endl;
 			cout << "\t- Producao:" << endl; 
 			cout << "\t\t- Ouro: " << logica.getImperioJogador()->encontraTerritorio(nome)->getOuro() << endl; 
 			cout << "\t\t- Produtos: "<< logica.getImperioJogador()->encontraTerritorio(nome)->getProdutos() << endl;
@@ -333,7 +341,7 @@ void Interface::listaTerritorio(string nome)
 		else 
 		{
 			cout << "Nome: " << logica.getMundo()->encontraTerritorio(nome)->getNome() << endl; 
-			cout << "\t- Resistência: " << logica.getMundo()->encontraTerritorio(nome)->getResistencia() << endl;
+			cout << "\t- Resistencia: " << logica.getMundo()->encontraTerritorio(nome)->getResistencia() << endl;
 		}
 	}
 	else

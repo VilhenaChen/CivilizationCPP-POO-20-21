@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
+#include <fstream>
 #include "Mundo.h"
 #include "Imperio_Jogador.h"
 #include "Territorio.h"
@@ -40,6 +41,9 @@ public:
 	//split
 	vector<string> splitComando(string comando);
 
+	//File
+	void carrega(string fnomefich);
+
 	//prepare
 	void preparaJogo();
 
@@ -51,7 +55,7 @@ public:
 	void calculaPontuacaoFinal();
 
 	//Game Operations
-	void conquista(string nome);
+	bool conquista(string nome);
 
 };
 
