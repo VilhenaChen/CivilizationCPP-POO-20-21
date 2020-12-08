@@ -58,7 +58,7 @@ bool Interface::Menu_Inicial()
 			{
 				if (com == "comeca")
 				{
-					if (logica.getMundo()->getTamTerritorios() > 5) {
+					if (logica.getMundo()->getTamTerritorios() => 5) {
 						logica.preparaJogo();
 						lista();
 						return true;
