@@ -16,6 +16,7 @@ Imperio_Jogador* Logica::getImperioJogador()
 }
 
 int Logica::getPontuacaoFinal()
+
 {
 	return pontuacao_final;
 }

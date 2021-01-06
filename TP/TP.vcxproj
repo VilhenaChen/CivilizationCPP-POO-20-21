@@ -140,24 +140,48 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Armazem.cpp" />
+    <ClCompile Include="Castelo.cpp" />
     <ClCompile Include="Cofre.cpp" />
+    <ClCompile Include="Continente.cpp" />
+    <ClCompile Include="Duna.cpp" />
     <ClCompile Include="Forca_Militar.cpp" />
+    <ClCompile Include="Fortaleza.cpp" />
+    <ClCompile Include="Ilha.cpp" />
     <ClCompile Include="Imperio_Jogador.cpp" />
     <ClCompile Include="Interface.cpp" />
     <ClCompile Include="Logica.cpp" />
+    <ClCompile Include="Mina.cpp" />
+    <ClCompile Include="Montanha.cpp" />
     <ClCompile Include="Mundo.cpp" />
+    <ClCompile Include="Pescaria.cpp" />
+    <ClCompile Include="Planicie.cpp" />
+    <ClCompile Include="Refugio_Piratas.cpp" />
+    <ClCompile Include="Tecnologia.cpp" />
     <ClCompile Include="Territorio.cpp" />
+    <ClCompile Include="Territorio_Inicial.cpp" />
     <ClCompile Include="TP.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Armazem.h" />
+    <ClInclude Include="Castelo.h" />
     <ClInclude Include="Cofre.h" />
+    <ClInclude Include="Continente.h" />
+    <ClInclude Include="Duna.h" />
     <ClInclude Include="Forca_Militar.h" />
+    <ClInclude Include="Fortaleza.h" />
+    <ClInclude Include="Ilha.h" />
     <ClInclude Include="Imperio_Jogador.h" />
     <ClInclude Include="Interface.h" />
     <ClInclude Include="Logica.h" />
+    <ClInclude Include="Mina.h" />
+    <ClInclude Include="Montanha.h" />
     <ClInclude Include="Mundo.h" />
+    <ClInclude Include="Pescaria.h" />
+    <ClInclude Include="Planicie.h" />
+    <ClInclude Include="Refugio_Piratas.h" />
+    <ClInclude Include="Tecnologia.h" />
     <ClInclude Include="Territorio.h" />
+    <ClInclude Include="Territorio_Inicial.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
