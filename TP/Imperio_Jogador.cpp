@@ -96,6 +96,16 @@ int Imperio_Jogador::getProducaoProdutos()
 	return producao_produtos;
 }
 
+void Imperio_Jogador::setOuro(int quantidade) 
+{
+	cofre.setNum_ouro(quantidade);
+}
+
+void Imperio_Jogador::setProdutos(int quantidade) 
+{
+	armazem.setNum_produtos(quantidade);
+}
+
 
 void Imperio_Jogador::geraFatorSorte() {
 	srand(time(nullptr));

@@ -45,6 +45,10 @@ public:
 	int getProducaoOuro();
 	int getProducaoProdutos();
 
+	//sets
+	void setOuro(int quantidade);
+	void setProdutos(int quantidade);
+
 	//gera
 	void geraFatorSorte();
 

@@ -253,7 +253,7 @@ bool Interface::Menu_Primeira_Fase() //Conquista/Passa
 bool Interface::Menu_Segunda_Fase() //Recolha de produtos e ouro
 {
 	string com_completo, com;
-	int k = 0;
+	int k = 0, quant = 0;
 	vector <string> vet_var_comando;
 	com.clear();//Limpar variavel
 	cout << "2 Fase do Turno "<< logica->getTurno() << " Ano " << logica->getAno() <<" (Recolha de Produtos/Ouro)" << endl;
@@ -261,7 +261,6 @@ bool Interface::Menu_Segunda_Fase() //Recolha de produtos e ouro
 	cout << "\tlista<nome>" << endl;
 	cout << "\tavanca" << endl;
 	cout << "\tsair" << endl;
-	/*
 	cout << "\tmaisouro" << endl;
 	cout << "\tmaisprod" << endl;
 	cout << "\tgrava<nome>" << endl;
@@ -270,7 +269,6 @@ bool Interface::Menu_Segunda_Fase() //Recolha de produtos e ouro
 	cout << "\ttoma<qual><nome>" << endl;
 	cout << "\tmodifica<ouro|prod>N(DEBUG)" << endl;
 	cout << "\tfevento<nome_evento>(DEBUG)" << endl;
-	*/
 	cout << "Insira um comando: ";
 	getline(cin, com_completo);
 	if (com_completo.empty())
@@ -293,7 +291,7 @@ bool Interface::Menu_Segunda_Fase() //Recolha de produtos e ouro
 			cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
 			return false;
 		}
-		if (vet_var_comando.size() != 2)
+		if (vet_var_comando.size() == 1)
 		{
 			lista();
 		}
@@ -317,15 +315,53 @@ bool Interface::Menu_Segunda_Fase() //Recolha de produtos e ouro
 			return true;
 		}
 		else {
-			if (vet_var_comando.size() > 1)
-			{
-				cout << "Comando Invalido. Foram inseridos demasiados argumentos" << endl;
-				return false;
+			if (com == "maisouro") { //Mais Ouro
+				if (vet_var_comando.size() > 1)
+				{
+					cout << "Comando Invalido. Foram inseridos demasiados argumentos" << endl;
+					return false;
+				}
+				if (vet_var_comando.size() < 1)
+				{
+					cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
+					return false;
+				}
+				return logica->maisOuroProdutosMilitar('o');
 			}
-			if (vet_var_comando.size() < 1)
-			{
-				cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
-				return false;
+			else {
+				if (com == "maisprod") { //Mais Produtos
+					if (vet_var_comando.size() > 1)
+					{
+						cout << "Comando Invalido. Foram inseridos demasiados argumentos" << endl;
+						return false;
+					}
+					if (vet_var_comando.size() < 1)
+					{
+						cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
+						return false;
+					}
+					return logica->maisOuroProdutosMilitar('p');
+				}
+				else
+				{
+					if(com == "modifica")
+					{
+						if (vet_var_comando.size() > 1)
+						{
+							cout << "Comando Invalido. Foram inseridos demasiados argumentos" << endl;
+							return false;
+						}
+						if (vet_var_comando.size() < 1)
+						{
+							cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
+							return false;
+						}
+						k++;
+						quant = stoi(vet_var_comando[k]);
+						k--;
+						return logica->modificaOuroOuProdutos(vet_var_comando[k], quant);
+					}
+				}
 			}
 			if(com == "sair") {
 				exit(0);
@@ -335,12 +371,82 @@ bool Interface::Menu_Segunda_Fase() //Recolha de produtos e ouro
 	return false;
 }
 
-bool Interface::Menu_Terceira_Fase() //Compra de militares e tecnologia
+bool Interface::Menu_Terceira_Fase(bool* militar, bool* tecnologia) //Compra de militares e tecnologia
 {
+	string com_completo, com;
+	int k = 0;
+	vector <string> vet_var_comando;
+	com.clear();//Limpar variavel
 	cout << "3 Fase do Turno "<< logica->getTurno() << " Ano " << logica->getAno() <<" (Comprar de Forca Militar/Tecnologia)" << endl;
 	cout << "\nMenu" << endl;
 	cout << "\tmaismilitar" << endl;
 	cout << "\tadquire<tipo>" << endl;
+	cout << "\tavanca" << endl;
+	cout << "Insira um comando: ";
+	getline(cin, com_completo);
+	if (com_completo.empty())
+	{
+		cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
+		return false;
+	}
+	vet_var_comando = logica->splitComando(com_completo); //DIVIDIR COMANDO
+	com = vet_var_comando[k];
+	k++;
+	if (com == "maismilitar") {
+		if (*militar == true) {
+			cout << "Ja comprou forca militar este turno" << endl;
+			return false;
+		}
+		if (vet_var_comando.size() > 1)
+		{
+			cout << "Comando Invalido. Foram inseridos demasiados argumentos" << endl;
+			return false;
+		}
+		if (vet_var_comando.size() < 1)
+		{
+			cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
+			return false;
+		}
+		logica->maisOuroProdutosMilitar('m');
+		*militar = true;
+		return false;
+	}
+	else {
+		if (com == "adquire") {
+			if (*tecnologia == true) {
+				cout << "Ja comprou forca militar este turno" << endl;
+				return false;
+			}
+			if (vet_var_comando.size() > 2)
+			{
+				cout << "Comando Invalido. Foram inseridos demasiados argumentos" << endl;
+				return false;
+			}
+			if (vet_var_comando.size() < 1)
+			{
+				cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
+				return false;
+			}
+			*tecnologia = true;
+			return false;
+		}
+		else {
+			if (com == "avanca") {
+				if (vet_var_comando.size() > 1)
+				{
+					cout << "Comando Invalido. Foram inseridos demasiados argumentos" << endl;
+					return false;
+				}
+				if (vet_var_comando.size() < 1)
+				{
+					cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
+					return false;
+				}
+				return true;
+			}
+		}
+	}
+	
 	return false;
 }
 
@@ -366,6 +472,7 @@ void Interface::Lanca_Menu_Inicial()
 void Interface::Lanca_Menu_Jogo()
 {
 	bool flag = false;
+	bool militar,tecnologia;
 	do
 	{
 		do
@@ -379,14 +486,22 @@ void Interface::Lanca_Menu_Jogo()
 		{
 			flag = Menu_Segunda_Fase();
 		} while (flag != true);
+		militar = false;
+		tecnologia = false;
+		flag = false;
+		do {
+			flag = Menu_Terceira_Fase(&militar, &tecnologia);
+		}while (flag != true);
 		if (logica->getAno() == 1 || (logica->getAno()==2 && logica->getTurno() < 6)) 
 		{
 			logica->increaseTurno();
 			logica->getImperioJogador()->atualizaProducaoOuro();
 			logica->getImperioJogador()->atualizaProducaoProdutos();
+			
 		}
 		else 
 		{
+
 			break;
 		}
 	} while (1);

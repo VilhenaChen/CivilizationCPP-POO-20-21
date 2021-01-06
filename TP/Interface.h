@@ -18,7 +18,7 @@ public:
 	bool Menu_Inicial();
 	bool Menu_Primeira_Fase();
 	bool Menu_Segunda_Fase();
-	bool Menu_Terceira_Fase();
+	bool Menu_Terceira_Fase(bool* militar, bool* tecnologia);
 	bool Menu_Quarta_Fase();
 
 	//Lanca Menus

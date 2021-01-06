@@ -141,6 +141,46 @@ void Logica::calculaPontuacaoFinal()
 	}
 }
 
+bool Logica::modificaOuroOuProdutos(string tipo, int quantidade)
+{
+	if (tipo == "ouro") 
+	{
+		if(quantidade <= imperio_jogador.getLimiteAtualOuro())
+		{
+			imperio_jogador.setOuro(quantidade);
+			cout << "Foi alterado para "<< quantidade <<" o numero de ouro" << endl;
+			return true;
+		}
+		else 
+		{
+			cout << "A quantidade inserida ultrapassa o limite atual do cofre que tem neste momento como valor: " << imperio_jogador.getLimiteAtualOuro() << endl;
+			return false;
+		}	
+	}
+	else 
+	{
+		if (tipo == "prod") 
+		{
+			if(quantidade <= imperio_jogador.getLimiteAtualProdutos())
+			{
+				imperio_jogador.setProdutos(quantidade);
+				cout << "Foi alterado para " << quantidade << " o numero de produtos" << endl;
+				return true;
+			}
+			else 
+			{
+				cout << "A quantidade inserida (" << quantidade <<") ultrapassa o limite atual do armazém que tem neste momento como valor: " << imperio_jogador.getLimiteAtualProdutos() << endl;
+				return false;
+			}
+		}
+		else 
+		{
+			cout << "Tipo de elemento a modificar inválido!" << endl;
+			return false;
+		}
+	}
+}
+
 bool Logica::conquista(string nome) {
 	int forca = 0;
 	imperio_jogador.geraFatorSorte();
@@ -167,4 +207,56 @@ bool Logica::conquista(string nome) {
 		cout << "Territorio nao existe" << endl;
 		return false;
 	}
+}
+
+bool Logica::maisOuroProdutosMilitar(char op)
+{
+	if (op == 'o') {
+		if (getImperioJogador()->getNumOuro() < getImperioJogador()->getLimiteAtualOuro()) { //Verifica se ja nao chegou ao limite de Ouro
+			if (getImperioJogador()->getProdutos() >= 2) {
+				getImperioJogador()->decreaseNumProdutos(2);
+				getImperioJogador()->increaseNumOuro(1);
+				cout << "Foi adicionado 1 ao numero de ouro" << endl;
+				return true;
+			}
+			cout << "Nao possui produtos sufientes, apenas tem " << getImperioJogador()->getProdutos() << " produtos e necessita de 2" << endl;
+			return false; //Caso nao tenha Produtos suficentes
+		}
+		cout << "Ja atingiu o limite atual de ouro" << endl;
+		return false; //Caso ja tenha chegado ao limite de ouro
+	}
+	else {
+		if (op == 'p') { 
+			if (getImperioJogador()->getProdutos() < getImperioJogador()->getLimiteAtualProdutos()) {//Verifica se ja nao chegou ao limite de Produtos
+				if (getImperioJogador()->getNumOuro() >= 2) {
+					getImperioJogador()->decreaseNumOuro(2);
+					getImperioJogador()->increaseNumProdutos(1);
+					cout << "Foi adicionado 1 aos produtos" << endl;
+					return true;
+				}
+				cout << "Nao possui ouro sufiente, apenas tem " << getImperioJogador()->getNumOuro() << " de ouro e necessita de 2" << endl;
+				return false; //Caso nao tenha Ouro suficente
+			}
+			cout << "Ja atingiu o limite atual de produtos" << endl;
+			return false; //Caso ja tenha chegado ao limite de produtos
+		}
+		else {
+			if (op == 'm') {
+				if (getImperioJogador()->getForcaMilitar() < getImperioJogador()->getLimiteAtualMilitar()) {//Verifica se ja nao chegou ao limite de Militares
+					if (getImperioJogador()->getNumOuro() >= 1 && getImperioJogador()->getProdutos() >= 1) {
+						getImperioJogador()->decreaseNumOuro(1);
+						getImperioJogador()->decreaseNumProdutos(1);
+						getImperioJogador()->increaseForcaMilitar();
+						cout << "Foi adicionado 1 a forca militar" << endl;
+						return true;
+					}
+					cout << "Nao possui ouro/produtos sufientes, apenas tem " << getImperioJogador()->getNumOuro() << " de ouro "<< getImperioJogador()->getProdutos() << " de produto e necessita de 1 de ambos" << endl;
+					return false; //Caso nao tenha Ouro e Produtos suficente
+				}
+				cout << "Ja atingiu o limite atual de produtos" << endl;
+				return false; //Caso ja tenha chegado ao limite de Militares
+			}
+		}
+	}
+	return false;
 }
