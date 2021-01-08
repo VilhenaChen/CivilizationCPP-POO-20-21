@@ -8,21 +8,17 @@ class Territorio
 {
 
 	string nome;
-	int resistencia;
-	int num_produtos_criados;
-	int num_ouro_criado;
-	int pontos_vitoria;
 
 
 public:
-	Territorio(string name, int resist, int prod, int gold, int points) :nome(name), resistencia(resist), num_produtos_criados(prod), num_ouro_criado(gold), pontos_vitoria(points) {}
+	Territorio(string name) :nome(name){}
 
 	//GETS
 	string getNome();
-	int getResistencia();
-	int getProdutos();
-	int getOuro();
-	int getPontos();
+	virtual int getPontos() = 0;
+	virtual int getResistencia() = 0;
+	virtual int getProdutos() = 0;
+	virtual int getOuro() = 0;
 
 	~Territorio() {}
 };

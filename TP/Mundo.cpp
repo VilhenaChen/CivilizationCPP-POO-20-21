@@ -1,5 +1,4 @@
 #include "Mundo.h"
-
 int Mundo::getTamTerritorios()
 {
 	return territorios.size();
@@ -99,12 +98,42 @@ bool Mundo::addTerritorio(string nome)
 
 	nome_concat = geraNomeConcat(nome);
 
-	//getResistencaRespetiva
-	//getNumProdutosRespetivo
-	//getNumOuroRespetivo
-	//getPontosRespetivos
-
-	territorios.push_back(new Territorio(nome_concat, 5, 1, 1, 1));
+	if (nome == "Planicie") {
+		territorios.push_back(new Planicie(nome_concat));
+	}
+	else {
+		if (nome == "Montanha") {
+			territorios.push_back(new Montanha(nome_concat));
+		}
+		else {
+			if (nome == "Fortaleza") {
+				territorios.push_back(new Fortaleza(nome_concat));
+			}
+			else {
+				if (nome == "Mina") {
+					territorios.push_back(new Mina(nome_concat));
+				}
+				else {
+					if (nome == "Duna") {
+						territorios.push_back(new Duna(nome_concat));
+					}
+					else {
+						if (nome == "Castelo") {
+							territorios.push_back(new Castelo(nome_concat));
+						}
+						else {
+							if (nome == "Pescaria") {
+								territorios.push_back(new Pescaria(nome_concat));
+							}
+							else {
+								territorios.push_back(new Refugio_Piratas(nome_concat));
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 	return true;
 }
 

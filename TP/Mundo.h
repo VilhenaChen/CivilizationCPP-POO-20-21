@@ -2,6 +2,17 @@
 #include <vector>
 #include "Territorio.h"
 #include <string>
+#include "Continente.h"
+#include "Ilha.h"
+#include "Territorio_Inicial.h"
+#include "Planicie.h"
+#include "Montanha.h"
+#include "Fortaleza.h"
+#include "Mina.h"
+#include "Duna.h"
+#include "Castelo.h"
+#include "Refugio_Piratas.h"
+#include "Pescaria.h"
 using namespace std;
 class Mundo
 {
@@ -12,7 +23,7 @@ public:
 	Mundo()
 	{
 		fillTipos_Territorios();
-		territorios.push_back(new Territorio("TerritorioInicial", 9, 1, 1, 0));
+		territorios.push_back(new Territorio_Inicial("TerritorioInicial"));
 	}
 
 	//get
