@@ -261,3 +261,102 @@ Territorio* Imperio_Jogador::encontraTerritorio(string nome)
 	return nullptr;
 }
 
+void Imperio_Jogador::compraTecnologia(string nome)
+{
+	if (nome == "drone") {
+		if(tecnologia.isDronesMilitares() == false){
+			if (cofre.getNum_ouro() >= tecnologia.getPrecoDrones()) {
+				forca_militar.setLimite_Atual();
+				cofre.setNum_ouro((cofre.getNum_ouro() - tecnologia.getPrecoDrones()));
+				tecnologia.setDronesMilitares(true);
+			}
+			else {
+				cout << "Nao possui ouro suficiente, apenas tem " << cofre.getNum_ouro() << " de ouro e necessita de " << tecnologia.getPrecoDrones() << endl;
+				return; //Caso nao tenha Ouro suficiente
+			}
+		}
+		else {
+			cout << "Já possui esta tecnologia" << endl;
+			return; //Caso já tenha a tecnologia
+		}
+	}
+	else {
+		if (nome == "missil") {
+			if (tecnologia.isMisseis() == false) {
+				if (cofre.getNum_ouro() >= tecnologia.getPrecoMisseis()) {
+					cofre.setNum_ouro((cofre.getNum_ouro() - tecnologia.getPrecoMisseis()));
+					tecnologia.setMisseis(true);
+				}
+				else {
+					cout << "Nao possui ouro suficiente, apenas tem " << cofre.getNum_ouro() << " de ouro e necessita de " << tecnologia.getPrecoMisseis() << endl;
+					return; //Caso nao tenha Ouro suficiente
+				}
+			}
+			else {
+				cout << "Já possui esta tecnologia" << endl;
+				return; //Caso já tenha a tecnologia
+			}
+		}
+		else {
+			if (nome == "defesas") {
+				if (tecnologia.isDefesasTerritoriais() == false) {
+					if (cofre.getNum_ouro() >= tecnologia.getPrecoDefesas()) {
+						cofre.setNum_ouro((cofre.getNum_ouro() - tecnologia.getPrecoDefesas()));
+						tecnologia.setDefesasTerritoriais(true);
+					}
+					else {
+						cout << "Nao possui ouro suficiente, apenas tem " << cofre.getNum_ouro() << " de ouro e necessita de " << tecnologia.getPrecoDefesas() << endl;
+						return; //Caso nao tenha Ouro suficiente
+					}
+				}
+				else {
+					cout << "Já possui esta tecnologia" << endl;
+					return; //Caso já tenha a tecnologia
+				}
+			}
+			else {
+				if (nome == "bolsa") {
+					if (tecnologia.isBolsaDeValores() == false) {
+						if (cofre.getNum_ouro() >= tecnologia.getPrecoBolsa()) {
+							cofre.setNum_ouro((cofre.getNum_ouro() - tecnologia.getPrecoBolsa()));
+							tecnologia.setBolsaDeValores(true);
+						}
+						else {
+							cout << "Nao possui ouro suficiente, apenas tem " << cofre.getNum_ouro() << " de ouro e necessita de " << tecnologia.getPrecoBolsa() << endl;
+							return; //Caso nao tenha Ouro suficiente
+						}
+					}
+					else {
+						cout << "Já possui esta tecnologia" << endl;
+						return; //Caso já tenha a tecnologia
+					}
+				}
+				else {
+					if (nome == "banco") {
+						if (tecnologia.isBancoCentral() == false) {
+							if (cofre.getNum_ouro() >= tecnologia.getPrecoBanco()) {
+								cofre.setCapacidade_Atual();
+								armazem.setCapacidade_Atual();
+								cofre.setNum_ouro((cofre.getNum_ouro() - tecnologia.getPrecoBanco()));
+								tecnologia.setMisseis(true);
+							}
+							else {
+								cout << "Nao possui ouro suficiente, apenas tem " << cofre.getNum_ouro() << " de ouro e necessita de " << tecnologia.getPrecoBanco() << endl;
+								return; //Caso nao tenha Ouro suficiente
+							}
+						}
+						else {
+							cout << "Já possui esta tecnologia" << endl;
+							return; //Caso já tenha a tecnologia
+						}
+					}
+					else{
+						cout << "A tecnologia inserida não existe!" << endl;
+						return; //Caso já tenha a tecnologia
+					}
+				}
+			}
+		}
+	}
+}
+

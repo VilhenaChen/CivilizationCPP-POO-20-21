@@ -3,10 +3,12 @@
 #include "Cofre.h"
 #include "Armazem.h"
 #include "Territorio.h"
+#include "Tecnologia.h"
 #include <iostream>
 #include <vector>
 #include <cstdlib>
 #include <ctime>
+
 
 
 using namespace std;
@@ -19,11 +21,12 @@ class Imperio_Jogador
 	Forca_Militar forca_militar;
 	Cofre cofre;
 	Armazem armazem;
+	Tecnologia tecnologia;
 	vector<Territorio*> territorios;
 
 public:
 	
-	Imperio_Jogador(): fator_sorte(0), producao_ouro(0), producao_produtos(0){}
+	Imperio_Jogador() : fator_sorte(0), producao_ouro(0), producao_produtos(0) {}
 
 	//gets
 	int getFatorSorte();
@@ -78,6 +81,9 @@ public:
 
 	//find
 	Territorio* encontraTerritorio(string nome);
+
+	//buy
+	void compraTecnologia(string nome);
 
 	~Imperio_Jogador() 
 	{

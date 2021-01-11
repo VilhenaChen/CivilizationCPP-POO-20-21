@@ -25,6 +25,31 @@ bool Tecnologia::isBancoCentral()
     return banco_central;
 }
 
+int Tecnologia::getPrecoDrones()
+{
+    return preco_drones;
+}
+
+int Tecnologia::getPrecoMisseis()
+{
+    return preco_misseis;
+}
+
+int Tecnologia::getPrecoDefesas()
+{
+    return defesas_territoriais;
+}
+
+int Tecnologia::getPrecoBolsa()
+{
+    return bolsa_de_valores;
+}
+
+int Tecnologia::getPrecoBanco()
+{
+    return preco_banco;
+}
+
 void Tecnologia::setDronesMilitares(bool valor)
 {
     drones_militares = valor;

@@ -251,7 +251,7 @@ bool Logica::maisOuroProdutosMilitar(char op)
 						cout << "Foi adicionado 1 a forca militar" << endl;
 						return true;
 					}
-					cout << "Nao possui ouro/produtos sufientes, apenas tem " << getImperioJogador()->getNumOuro() << " de ouro "<< getImperioJogador()->getProdutos() << " de produto e necessita de 1 de ambos" << endl;
+					cout << "Nao possui ouro/produtos suficientes, apenas tem " << getImperioJogador()->getNumOuro() << " de ouro "<< getImperioJogador()->getProdutos() << " de produto e necessita de 1 de ambos" << endl;
 					return false; //Caso nao tenha Ouro e Produtos suficente
 				}
 				cout << "Ja atingiu o limite atual de produtos" << endl;
