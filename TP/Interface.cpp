@@ -475,6 +475,7 @@ void Interface::Lanca_Menu_Jogo()
 	bool militar,tecnologia;
 	do
 	{
+		logica->atualizaProdutosEOuroTerritorios();
 		do
 		{
 			flag = Menu_Primeira_Fase();

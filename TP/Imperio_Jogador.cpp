@@ -249,6 +249,13 @@ void Imperio_Jogador::atualizaProducaoProdutos()
 	producao_produtos = produtos;
 }
 
+void Imperio_Jogador::atualizaProdutosEOutroTerritorios(int ano, int turno)
+{
+	for (int i = 0; i < territorios.size(); i++) {
+		territorios[i]->atualizaProdutosEOuro(ano,turno);
+	}
+}
+
 Territorio* Imperio_Jogador::encontraTerritorio(string nome)
 {
 	for (int i = 0; i < territorios.size(); i++)

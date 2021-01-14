@@ -182,6 +182,11 @@ bool Logica::modificaOuroOuProdutos(string tipo, int quantidade)
 	}
 }
 
+void Logica::atualizaProdutosEOuroTerritorios()
+{
+	imperio_jogador.atualizaProdutosEOutroTerritorios(ano, turno);
+}
+
 bool Logica::conquista(string nome) {
 	int forca = 0;
 	imperio_jogador.geraFatorSorte();

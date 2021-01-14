@@ -14,3 +14,25 @@ int Duna::getOuro()
 {
 	return num_ouro_criado;
 }
+
+int Duna::getAnoConquistado()
+{
+	return ano_conquistado;
+}
+
+int Duna::getTurnoConquistado()
+{
+	return turno_conquistado;
+}
+
+void Duna::setAnoConquistado(int ano)
+{
+	ano_conquistado = ano;
+}
+
+void Duna::setTurnoConquistado(int turno)
+{
+	turno_conquistado = turno;
+}
+
+void Duna::atualizaProdutosEOuro(int ano, int turno){}

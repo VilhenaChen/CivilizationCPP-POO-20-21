@@ -57,6 +57,9 @@ public:
 	//modify
 	bool modificaOuroOuProdutos(string tipo, int quantidade);
 
+	//update
+	void atualizaProdutosEOuroTerritorios();
+
 	//Game Operations
 	bool conquista(string nome);
 	bool maisOuroProdutosMilitar(char op); //Funcao para os comandos maisouro ou maisprodutos

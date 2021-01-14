@@ -78,6 +78,7 @@ public:
 	//Update
 	void atualizaProducaoOuro();
 	void atualizaProducaoProdutos();
+	void atualizaProdutosEOutroTerritorios(int ano, int turno);
 
 	//find
 	Territorio* encontraTerritorio(string nome);
