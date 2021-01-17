@@ -25,6 +25,16 @@ bool Tecnologia::isBancoCentral()
     return banco_central;
 }
 
+bool Tecnologia::verificaSePossuiTodasAsTecnologias()
+{
+    if (drones_militares && misseis && defesas_territoriais && bolsa_de_valores && banco_central) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
 int Tecnologia::getPrecoDrones()
 {
     return preco_drones;
@@ -48,6 +58,18 @@ int Tecnologia::getPrecoBolsa()
 int Tecnologia::getPrecoBanco()
 {
     return preco_banco;
+}
+
+int Tecnologia::getNumeroTecnologias()
+{
+    int cont = 0;
+    if (drones_militares) { cont++; }
+    if (misseis) { cont++; }
+    if (defesas_territoriais) { cont++; }
+    if (banco_central) { cont++; }
+    if (bolsa_de_valores) { cont++; }
+
+    return cont;
 }
 
 void Tecnologia::setDronesMilitares(bool valor)

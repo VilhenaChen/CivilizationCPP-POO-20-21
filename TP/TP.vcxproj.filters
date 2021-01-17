@@ -78,6 +78,9 @@
     <ClCompile Include="Tecnologia.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Eventos.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Interface.h">
@@ -138,6 +141,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tecnologia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Eventos.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

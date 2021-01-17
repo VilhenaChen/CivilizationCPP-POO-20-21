@@ -25,6 +25,11 @@ int Montanha::getTurnoConquistado()
 	return turno_conquistado;
 }
 
+string Montanha::getMeuTipo()
+{
+	return "Montanha";
+}
+
 void Montanha::setAnoConquistado(int ano)
 {
 	ano_conquistado = ano;

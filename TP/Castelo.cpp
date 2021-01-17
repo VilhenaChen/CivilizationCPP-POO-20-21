@@ -25,6 +25,11 @@ int Castelo::getTurnoConquistado()
 	return turno_conquistado;
 }
 
+string Castelo::getMeuTipo()
+{
+	return "Castelo";
+}
+
 void Castelo::setAnoConquistado(int ano)
 {
 	ano_conquistado = ano;

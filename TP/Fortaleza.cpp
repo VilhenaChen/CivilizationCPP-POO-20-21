@@ -25,6 +25,11 @@ int Fortaleza::getTurnoConquistado()
 	return turno_conquistado;
 }
 
+string Fortaleza::getMeuTipo()
+{
+	return "Fortaleza";
+}
+
 void Fortaleza::setAnoConquistado(int ano)
 {
 	ano_conquistado = ano;

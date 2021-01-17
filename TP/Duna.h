@@ -16,6 +16,7 @@ public:
 	int getOuro();
 	int getAnoConquistado();
 	int getTurnoConquistado();
+	string getMeuTipo();
 
 	//sets
 	void setAnoConquistado(int ano);

@@ -20,6 +20,7 @@ public:
 	int getPontos();
 	int getAnoConquistado();
 	int getTurnoConquistado();
+	string getMeuTipo();
 
 	//sets
 	void setAnoConquistado(int ano);

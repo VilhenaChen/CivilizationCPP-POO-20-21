@@ -25,6 +25,11 @@ int Duna::getTurnoConquistado()
 	return turno_conquistado;
 }
 
+string Duna::getMeuTipo()
+{
+	return "Duna";
+}
+
 void Duna::setAnoConquistado(int ano)
 {
 	ano_conquistado = ano;

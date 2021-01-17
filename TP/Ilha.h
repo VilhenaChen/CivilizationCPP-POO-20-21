@@ -13,6 +13,7 @@ public:
 	virtual int getOuro() = 0;
 	virtual int getAnoConquistado() = 0;
 	virtual int getTurnoConquistado() = 0;
+	virtual string getMeuTipo() = 0;
 
 	//sets
 	virtual void setAnoConquistado(int ano) = 0;

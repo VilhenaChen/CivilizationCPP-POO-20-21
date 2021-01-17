@@ -22,6 +22,7 @@ public:
 	bool isDefesasTerritoriais();
 	bool isBolsaDeValores();
 	bool isBancoCentral();
+	bool verificaSePossuiTodasAsTecnologias();
 
 	//gets
 	int getPrecoDrones();
@@ -29,6 +30,7 @@ public:
 	int getPrecoDefesas();
 	int getPrecoBolsa();
 	int getPrecoBanco();
+	int getNumeroTecnologias();
 
 	//sets
 	void setDronesMilitares(bool valor);

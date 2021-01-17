@@ -96,6 +96,11 @@ int Imperio_Jogador::getProducaoProdutos()
 	return producao_produtos;
 }
 
+Tecnologia* Imperio_Jogador::getTecnologia()
+{
+	return &tecnologia;
+}
+
 void Imperio_Jogador::setOuro(int quantidade) 
 {
 	cofre.setNum_ouro(quantidade);
@@ -365,5 +370,10 @@ void Imperio_Jogador::compraTecnologia(string nome)
 			}
 		}
 	}
+}
+
+void Imperio_Jogador::apagaUltimoTerritorioConquistado()
+{
+	territorios.pop_back();
 }
 

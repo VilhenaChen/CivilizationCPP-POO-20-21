@@ -25,6 +25,11 @@ int Mina::getTurnoConquistado()
 	return turno_conquistado;
 }
 
+string Mina::getMeuTipo()
+{
+	return "Mina";
+}
+
 void Mina::setAnoConquistado(int ano)
 {
 	ano_conquistado = ano;

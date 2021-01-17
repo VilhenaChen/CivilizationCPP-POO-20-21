@@ -155,6 +155,12 @@ bool Interface::Menu_Primeira_Fase() //Conquista/Passa
 	cout << "\tconquista<nome>" << endl;
 	cout << "\tpassa" << endl;
 	cout << "\tlista<nome>" << endl;
+	cout << "\tmodifica<ouro|prod>" << endl;
+	cout << "\tfevento<nome-evento>" << endl;
+	cout << "\ttoma<qual><nome>" << endl;
+	cout << "\tgrava<nome>" << endl;
+	cout << "\tativa<nome>" << endl;
+	cout << "\tapaga<nome>" << endl;
 	cout << "\tsair" << endl;
 	cout << "Insira um comando: ";
 	getline(cin, com_completo);
@@ -226,22 +232,18 @@ bool Interface::Menu_Primeira_Fase() //Conquista/Passa
 			}
 			else
 			{
-				if (com == "sair") 
-				{
-					if (vet_var_comando.size() > 1)
-					{
+				if (com == "sair") {
+					if (vet_var_comando.size() > 1) {
 						cout << "Comando Invalido. Foram inseridos demasiados argumentos" << endl;
 						return false;
 					}
-					if (vet_var_comando.size() < 1)
-					{
+					if (vet_var_comando.size() < 1) {
 						cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
 						return false;
 					}
 					exit(0);
 				}
-				else 
-				{
+				else {
 					cout << "Comando Invalido. Por favor insira um comando valido!!!" << endl;
 					return false;
 				}
@@ -269,10 +271,10 @@ bool Interface::Menu_Segunda_Fase() //Recolha de produtos e ouro
 	cout << "\ttoma<qual><nome>" << endl;
 	cout << "\tmodifica<ouro|prod>N(DEBUG)" << endl;
 	cout << "\tfevento<nome_evento>(DEBUG)" << endl;
+	cout << "\tsair" << endl;
 	cout << "Insira um comando: ";
 	getline(cin, com_completo);
-	if (com_completo.empty())
-	{
+	if (com_completo.empty()) {
 		cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
 		return false;
 	}
@@ -281,34 +283,28 @@ bool Interface::Menu_Segunda_Fase() //Recolha de produtos e ouro
 	com = vet_var_comando[k];
 	k++;
 	if (com == "lista") {
-		if (vet_var_comando.size() > 2)
-		{
+		if (vet_var_comando.size() > 2) {
 			cout << "Comando Invalido. Foram inseridos demasiados argumentos" << endl;
 			return false;
 		}
-		if (vet_var_comando.size() < 1)
-		{
+		if (vet_var_comando.size() < 1) {
 			cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
 			return false;
 		}
-		if (vet_var_comando.size() == 1)
-		{
+		if (vet_var_comando.size() == 1) {
 			lista();
 		}
-		else
-		{
+		else {
 			listaTerritorio(vet_var_comando[k]);
 		}
 	} 
 	else {
 		if (com == "avanca") {
-			if (vet_var_comando.size() > 1)
-			{
+			if (vet_var_comando.size() > 1) {
 				cout << "Comando Invalido. Foram inseridos demasiados argumentos" << endl;
 				return false;
 			}
-			if (vet_var_comando.size() < 1)
-			{
+			if (vet_var_comando.size() < 1) {
 				cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
 				return false;
 			}
@@ -316,13 +312,11 @@ bool Interface::Menu_Segunda_Fase() //Recolha de produtos e ouro
 		}
 		else {
 			if (com == "maisouro") { //Mais Ouro
-				if (vet_var_comando.size() > 1)
-				{
+				if (vet_var_comando.size() > 1) {
 					cout << "Comando Invalido. Foram inseridos demasiados argumentos" << endl;
 					return false;
 				}
-				if (vet_var_comando.size() < 1)
-				{
+				if (vet_var_comando.size() < 1) {
 					cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
 					return false;
 				}
@@ -330,29 +324,23 @@ bool Interface::Menu_Segunda_Fase() //Recolha de produtos e ouro
 			}
 			else {
 				if (com == "maisprod") { //Mais Produtos
-					if (vet_var_comando.size() > 1)
-					{
+					if (vet_var_comando.size() > 1) {
 						cout << "Comando Invalido. Foram inseridos demasiados argumentos" << endl;
 						return false;
 					}
-					if (vet_var_comando.size() < 1)
-					{
+					if (vet_var_comando.size() < 1) {
 						cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
 						return false;
 					}
 					return logica->maisOuroProdutosMilitar('p');
 				}
-				else
-				{
-					if(com == "modifica")
-					{
-						if (vet_var_comando.size() > 1)
-						{
+				else {
+					if(com == "modifica") {
+						if (vet_var_comando.size() > 1) {
 							cout << "Comando Invalido. Foram inseridos demasiados argumentos" << endl;
 							return false;
 						}
-						if (vet_var_comando.size() < 1)
-						{
+						if (vet_var_comando.size() < 1) {
 							cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
 							return false;
 						}
@@ -381,11 +369,17 @@ bool Interface::Menu_Terceira_Fase(bool* militar, bool* tecnologia) //Compra de 
 	cout << "\nMenu" << endl;
 	cout << "\tmaismilitar" << endl;
 	cout << "\tadquire<tipo>" << endl;
+	cout << "\tmodifica<ouro|prod>" << endl;
+	cout << "\tfevento<nome-evento>" << endl;
+	cout << "\ttoma<qual><nome>" << endl;
+	cout << "\tgrava<nome>" << endl;
+	cout << "\tativa<nome>" << endl;
+	cout << "\tapaga<nome>" << endl;
+	cout << "\tlista<nome>" << endl;
 	cout << "\tavanca" << endl;
 	cout << "Insira um comando: ";
 	getline(cin, com_completo);
-	if (com_completo.empty())
-	{
+	if (com_completo.empty()){
 		cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
 		return false;
 	}
@@ -397,13 +391,11 @@ bool Interface::Menu_Terceira_Fase(bool* militar, bool* tecnologia) //Compra de 
 			cout << "Ja comprou forca militar este turno" << endl;
 			return false;
 		}
-		if (vet_var_comando.size() > 1)
-		{
+		if (vet_var_comando.size() > 1) {
 			cout << "Comando Invalido. Foram inseridos demasiados argumentos" << endl;
 			return false;
 		}
-		if (vet_var_comando.size() < 1)
-		{
+		if (vet_var_comando.size() < 1) {
 			cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
 			return false;
 		}
@@ -417,28 +409,25 @@ bool Interface::Menu_Terceira_Fase(bool* militar, bool* tecnologia) //Compra de 
 				cout << "Ja comprou forca militar este turno" << endl;
 				return false;
 			}
-			if (vet_var_comando.size() > 2)
-			{
+			if (vet_var_comando.size() > 2) {
 				cout << "Comando Invalido. Foram inseridos demasiados argumentos" << endl;
 				return false;
 			}
-			if (vet_var_comando.size() < 1)
-			{
+			if (vet_var_comando.size() < 1) {
 				cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
 				return false;
 			}
+			logica->adquireTecnologia(vet_var_comando[k]);
 			*tecnologia = true;
 			return false;
 		}
 		else {
 			if (com == "avanca") {
-				if (vet_var_comando.size() > 1)
-				{
+				if (vet_var_comando.size() > 1) {
 					cout << "Comando Invalido. Foram inseridos demasiados argumentos" << endl;
 					return false;
 				}
-				if (vet_var_comando.size() < 1)
-				{
+				if (vet_var_comando.size() < 1) {
 					cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
 					return false;
 				}
@@ -452,8 +441,59 @@ bool Interface::Menu_Terceira_Fase(bool* militar, bool* tecnologia) //Compra de 
 
 bool Interface::Menu_Quarta_Fase() //Fase de Evento
 {
-	cout << "4 Fase do Turno "<< logica->getTurno() << " Ano " << logica->getAno() <<" (Eventos)" << endl;
+	string com_completo, com;
+	int k = 0;
+	vector <string> vet_var_comando;
+	com.clear();//Limpar variavel
+	cout << "4 Fase do Turno " << logica->getTurno() << " Ano " << logica->getAno() << " (Eventos)" << endl;
 	cout << "\nMenu" << endl;
+	cout << "\tlista<nome>" << endl;
+	cout << "\tmodifica<ouro|prod>" << endl;
+	cout << "\tfevento<nome-evento>" << endl;
+	cout << "\ttoma<qual><nome>" << endl;
+	cout << "\tgrava<nome>" << endl;
+	cout << "\tativa<nome>" << endl;
+	cout << "\tapaga<nome>" << endl;
+	cout << "\tavanca" << endl;
+	cout << "Insira um comando: ";
+	getline(cin, com_completo);
+	if (com_completo.empty()) {
+		cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
+		return false;
+	}
+	vet_var_comando = logica->splitComando(com_completo); //DIVIDIR COMANDO
+	com = vet_var_comando[k];
+	k++;
+	k++;
+	if (com == "lista") {
+		if (vet_var_comando.size() > 2) {
+			cout << "Comando Invalido. Foram inseridos demasiados argumentos" << endl;
+			return false;
+		}
+		if (vet_var_comando.size() < 1) {
+			cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
+			return false;
+		}
+		if (vet_var_comando.size() == 1) {
+			lista();
+		}
+		else {
+			listaTerritorio(vet_var_comando[k]);
+		}
+	}
+	else {
+		if (com == "avanca") {
+			if (vet_var_comando.size() > 1) {
+				cout << "Comando Invalido. Foram inseridos demasiados argumentos" << endl;
+				return false;
+			}
+			if (vet_var_comando.size() < 1) {
+				cout << "Comando Invalido. Os argumentos inseridos sao insuficientes" << endl;
+				return false;
+			}
+			return true;
+		}
+	}
 	return false;
 }
 
@@ -493,6 +533,9 @@ void Interface::Lanca_Menu_Jogo()
 		do {
 			flag = Menu_Terceira_Fase(&militar, &tecnologia);
 		}while (flag != true);
+		do {
+			flag = Menu_Quarta_Fase();
+		} while (flag != true);
 		if (logica->getAno() == 1 || (logica->getAno()==2 && logica->getTurno() < 6)) 
 		{
 			logica->increaseTurno();
@@ -502,7 +545,6 @@ void Interface::Lanca_Menu_Jogo()
 		}
 		else 
 		{
-
 			break;
 		}
 	} while (1);

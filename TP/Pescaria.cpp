@@ -25,6 +25,11 @@ int Pescaria::getTurnoConquistado()
 	return turno_conquistado;
 }
 
+string Pescaria::getMeuTipo()
+{
+	return "Pescaria";
+}
+
 void Pescaria::setAnoConquistado(int ano)
 {
 	ano_conquistado = ano;

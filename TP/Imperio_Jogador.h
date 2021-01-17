@@ -47,6 +47,7 @@ public:
 	int getPontosVitoriaTerritorio(int posicao);
 	int getProducaoOuro();
 	int getProducaoProdutos();
+	Tecnologia* getTecnologia();
 
 	//sets
 	void setOuro(int quantidade);
@@ -85,6 +86,9 @@ public:
 
 	//buy
 	void compraTecnologia(string nome);
+
+	//delete
+	void apagaUltimoTerritorioConquistado();
 
 	~Imperio_Jogador() 
 	{

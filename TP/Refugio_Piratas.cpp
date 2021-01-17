@@ -25,6 +25,11 @@ int Refugio_Piratas::getTurnoConquistado()
 	return turno_conquistado;
 }
 
+string Refugio_Piratas::getMeuTipo()
+{
+	return "RefugioDosPiratas";
+}
+
 void Refugio_Piratas::setAnoConquistado(int ano)
 {
 	ano_conquistado = ano;

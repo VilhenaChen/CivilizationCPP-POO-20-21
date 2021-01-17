@@ -30,6 +30,11 @@ int Territorio_Inicial::getTurnoConquistado()
 	return turno_conquistado;
 }
 
+string Territorio_Inicial::getMeuTipo()
+{
+	return "TerritorioInicial";
+}
+
 void Territorio_Inicial::setAnoConquistado(int ano)
 {
 	ano_conquistado = ano;

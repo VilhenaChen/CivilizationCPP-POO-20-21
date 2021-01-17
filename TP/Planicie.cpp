@@ -25,6 +25,11 @@ int Planicie::getTurnoConquistado()
 	return turno_conquistado;
 }
 
+string Planicie::getMeuTipo()
+{
+	return "Planicie";
+}
+
 void Planicie::setAnoConquistado(int ano)
 {
 	ano_conquistado = ano;

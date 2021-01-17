@@ -144,6 +144,7 @@
     <ClCompile Include="Cofre.cpp" />
     <ClCompile Include="Continente.cpp" />
     <ClCompile Include="Duna.cpp" />
+    <ClCompile Include="Eventos.cpp" />
     <ClCompile Include="Forca_Militar.cpp" />
     <ClCompile Include="Fortaleza.cpp" />
     <ClCompile Include="Ilha.cpp" />
@@ -167,6 +168,7 @@
     <ClInclude Include="Cofre.h" />
     <ClInclude Include="Continente.h" />
     <ClInclude Include="Duna.h" />
+    <ClInclude Include="Eventos.h" />
     <ClInclude Include="Forca_Militar.h" />
     <ClInclude Include="Fortaleza.h" />
     <ClInclude Include="Ilha.h" />
