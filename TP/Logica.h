@@ -69,13 +69,17 @@ public:
 	bool conquista(string nome);
 	bool maisOuroProdutosMilitar(char op); //Funcao para os comandos maisouro ou maisprodutos
 
-	//Eventos
+	//eventos
 	bool geraEventoRandom();
 	bool geraEventoEspecifico(string evento);
 	void recursoAbandonado();
 	void invasao();
 	void aliancaDiplomatica();
 	void semEvento();
+
+	//take
+	bool tomaTerritorioOuTecnologia(string tipo, string nome);
+
 
 	~Logica() 
 	{

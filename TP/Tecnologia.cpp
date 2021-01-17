@@ -35,6 +35,7 @@ bool Tecnologia::verificaSePossuiTodasAsTecnologias()
     }
 }
 
+
 int Tecnologia::getPrecoDrones()
 {
     return preco_drones;

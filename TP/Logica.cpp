@@ -71,6 +71,8 @@ bool Logica::criaNTerritorios(string nome, int num)
 }
 
 vector<string> Logica::splitComando(string comando)
+
+
 {
 	vector<string> tokens;
 	stringstream com(comando);
@@ -426,4 +428,81 @@ void Logica::aliancaDiplomatica()
 void Logica::semEvento()
 {
 	cout << "Nenhum evento ocorreu!" << endl;
+}
+
+bool Logica::tomaTerritorioOuTecnologia(string tipo, string nome)
+{
+	if (tipo == "territorio") {
+		if (mundo.verificaExistenciaTerritorio(nome) == true)
+		{
+			adicionaNovoTerritorioAoImperio(nome);
+		}
+		else
+		{
+			cout << "Territorio nao existe" << endl;
+			return;
+		}
+	}
+	else {
+		if (tipo == "tecnologia") {
+			if (nome == "drone") {
+				if ( imperio_jogador.getTecnologia()->isDronesMilitares() == false) {
+					imperio_jogador.getTecnologia()->setDronesMilitares(true);
+				}
+				else {
+					cout << "Já possui esta tecnologia" << endl;
+					return; //Caso já tenha a tecnologia
+				}
+			}
+			else {
+				if (nome == "missil") {
+					if (imperio_jogador.getTecnologia()->isMisseis() == false) {
+						imperio_jogador.getTecnologia()->setMisseis(true);
+					}
+					else {
+						cout << "Já possui esta tecnologia" << endl;
+						return; //Caso já tenha a tecnologia
+					}
+				}
+				else {
+					if (nome == "defesas") {
+						if (imperio_jogador.getTecnologia()->isDefesasTerritoriais() == false) {
+							imperio_jogador.getTecnologia()->setDefesasTerritoriais(true);
+						}
+						else {
+							cout << "Já possui esta tecnologia" << endl;
+							return; //Caso já tenha a tecnologia
+						}
+					}
+					else {
+						if (nome == "bolsa") {
+							if (imperio_jogador.getTecnologia()->isBolsaDeValores() == false) {
+								imperio_jogador.getTecnologia()->setBolsaDeValores(true);
+							}
+							else {
+								cout << "Já possui esta tecnologia" << endl;
+								return; //Caso já tenha a tecnologia
+							}
+						}
+						else {
+							if (nome == "banco") {
+								if (imperio_jogador.getTecnologia()->isBancoCentral() == false) {
+									imperio_jogador.getTecnologia()->setBancoCentral(true);
+								}
+								else {
+									cout << "Já possui esta tecnologia" << endl;
+									return; //Caso já tenha a tecnologia
+								}
+							}
+							else {
+								cout << "A tecnologia inserida não existe!" << endl;
+								return; //Caso já tenha a tecnologia
+							}
+						}
+					}
+				}
+			}
+		}
+		}
+	}
 }
