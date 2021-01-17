@@ -95,7 +95,6 @@ public:
 		for (auto it = territorios.begin(); it < territorios.end(); it++)
 		{
 			delete* it;
-			territorios.erase(it);
 		}
 	}
 	

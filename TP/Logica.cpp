@@ -211,8 +211,8 @@ bool Logica::conquista(string nome) {
 		if (imperio_jogador.verificaSeTerritorioEstaConquistado(nome) == false) {
 			if (mundo.encontraTerritorio(nome)->getMeuTipo() == "RefugioDosPiratas" || mundo.encontraTerritorio(nome)->getMeuTipo() == "Pescaria") {
 				if (imperio_jogador.getTecnologia()->isMisseis() == false) {
-					cout << "Territorio nao conquistado! Nao possui a tecnologia Missies teleguiados" << endl;
-					return false;
+					cout << "Territorio nao conquistado pois nao possui a tecnologia Missies teleguiados" << endl;
+					return true;
 				}
 			}
 			forca = imperio_jogador.getFatorSorte() + imperio_jogador.getForcaMilitar();
@@ -402,8 +402,8 @@ void Logica::invasao()
 
 	if (resistencia < forca_conjunta) 
 	{
-		cout << "Sofreu uma Invasão e perdeu o Territorio" << imperio_jogador.getNomeTerritorio((imperio_jogador.getTamTerritorios() - 1)) << "!" <<endl;
-		cout << "\tResistencia: " << resistencia << "ForcaInvasao" << forca_conjunta << endl;
+		cout << "Sofreu uma Invasao e perdeu o Territorio " << imperio_jogador.getNomeTerritorio((imperio_jogador.getTamTerritorios() - 1)) << "!" <<endl;
+		cout << "\tResistencia: " << resistencia << " ForcaInvasao " << forca_conjunta << endl;
 
 		if (imperio_jogador.getTamTerritorios() == 1) {
 			cout << "Perdeu o jogo por perder todos os Territorios!" << endl;
@@ -413,7 +413,8 @@ void Logica::invasao()
 	}
 	else 
 	{
-		cout << "Sofreu uma tentativa falhada de Invasão ao Territorio" << imperio_jogador.getNomeTerritorio((imperio_jogador.getTamTerritorios() - 1)) << endl;
+		cout << "Sofreu uma tentativa falhada de Invasao ao Territorio " << imperio_jogador.getNomeTerritorio((imperio_jogador.getTamTerritorios() - 1)) << endl;
+		cout << "\tResistencia: " << resistencia << " ForcaInvasao " << forca_conjunta << endl;
 	}
 
 
@@ -436,6 +437,7 @@ void Logica::tomaTerritorioOuTecnologia(string tipo, string nome)
 		if (mundo.verificaExistenciaTerritorio(nome) == true)
 		{
 			adicionaNovoTerritorioAoImperio(nome);
+			cout << "O Territorio " <<nome << " foi conquistado"<< endl;
 		}
 		else
 		{
@@ -448,6 +450,7 @@ void Logica::tomaTerritorioOuTecnologia(string tipo, string nome)
 			if (nome == "drone") {
 				if ( imperio_jogador.getTecnologia()->isDronesMilitares() == false) {
 					imperio_jogador.getTecnologia()->setDronesMilitares(true);
+					cout << "A tecnologia "<< nome << " foi tomada" << endl;
 				}
 				else {
 					cout << "Já possui esta tecnologia" << endl;
@@ -458,6 +461,7 @@ void Logica::tomaTerritorioOuTecnologia(string tipo, string nome)
 				if (nome == "missil") {
 					if (imperio_jogador.getTecnologia()->isMisseis() == false) {
 						imperio_jogador.getTecnologia()->setMisseis(true);
+						cout << "A tecnologia "<< nome << " foi tomada" << endl;
 					}
 					else {
 						cout << "Já possui esta tecnologia" << endl;
@@ -468,6 +472,7 @@ void Logica::tomaTerritorioOuTecnologia(string tipo, string nome)
 					if (nome == "defesas") {
 						if (imperio_jogador.getTecnologia()->isDefesasTerritoriais() == false) {
 							imperio_jogador.getTecnologia()->setDefesasTerritoriais(true);
+							cout << "A tecnologia "<< nome << " foi tomada" << endl;
 						}
 						else {
 							cout << "Já possui esta tecnologia" << endl;
@@ -478,6 +483,7 @@ void Logica::tomaTerritorioOuTecnologia(string tipo, string nome)
 						if (nome == "bolsa") {
 							if (imperio_jogador.getTecnologia()->isBolsaDeValores() == false) {
 								imperio_jogador.getTecnologia()->setBolsaDeValores(true);
+								cout << "A tecnologia "<< nome << " foi tomada" << endl;
 							}
 							else {
 								cout << "Já possui esta tecnologia" << endl;
@@ -488,6 +494,7 @@ void Logica::tomaTerritorioOuTecnologia(string tipo, string nome)
 							if (nome == "banco") {
 								if (imperio_jogador.getTecnologia()->isBancoCentral() == false) {
 									imperio_jogador.getTecnologia()->setBancoCentral(true);
+									cout << "A tecnologia "<< nome << " foi tomada" << endl;
 								}
 								else {
 									cout << "Já possui esta tecnologia" << endl;
@@ -502,7 +509,6 @@ void Logica::tomaTerritorioOuTecnologia(string tipo, string nome)
 					}
 				}
 			}
-		}
 		}
 	}
 }

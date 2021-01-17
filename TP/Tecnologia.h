@@ -23,7 +23,6 @@ public:
 	bool isBolsaDeValores();
 	bool isBancoCentral();
 	bool verificaSePossuiTodasAsTecnologias();
-	bool verificaSeATecnologiaExiste(string nome);
 
 	//gets
 	int getPrecoDrones();
