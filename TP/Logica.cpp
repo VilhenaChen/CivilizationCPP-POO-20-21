@@ -430,7 +430,7 @@ void Logica::semEvento()
 	cout << "Nenhum evento ocorreu!" << endl;
 }
 
-bool Logica::tomaTerritorioOuTecnologia(string tipo, string nome)
+void Logica::tomaTerritorioOuTecnologia(string tipo, string nome)
 {
 	if (tipo == "territorio") {
 		if (mundo.verificaExistenciaTerritorio(nome) == true)

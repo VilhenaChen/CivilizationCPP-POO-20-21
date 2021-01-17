@@ -78,7 +78,7 @@ public:
 	void semEvento();
 
 	//take
-	bool tomaTerritorioOuTecnologia(string tipo, string nome);
+	void tomaTerritorioOuTecnologia(string tipo, string nome);
 
 
 	~Logica() 
