@@ -2,6 +2,8 @@
 #include <cstdlib>
 #include <ctime>
 
+using namespace std;
+
 class Forca_Militar
 {
 	const int limite_max=5;

@@ -1,4 +1,7 @@
 #pragma once
+
+using namespace std;
+
 class Tecnologia
 {
 	bool drones_militares;
@@ -39,6 +42,6 @@ public:
 	void setBolsaDeValores(bool valor);
 	void setBancoCentral(bool valor);
 	
-
+	~Tecnologia() {}
 };
 

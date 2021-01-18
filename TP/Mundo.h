@@ -13,7 +13,9 @@
 #include "Castelo.h"
 #include "Refugio_Piratas.h"
 #include "Pescaria.h"
+
 using namespace std;
+
 class Mundo
 {
 	vector<Territorio*> territorios;

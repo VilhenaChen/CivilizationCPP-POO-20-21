@@ -1,4 +1,7 @@
 #pragma once
+
+using namespace std;
+
 class Armazem
 {
 	const int capacidade_max = 5;

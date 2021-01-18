@@ -1,6 +1,8 @@
 #pragma once
 #include "Territorio.h"
 
+using namespace std;
+
 class Territorio_Inicial : public Territorio
 {
 	int pontos_vitoria;
@@ -28,5 +30,7 @@ public:
 
 	//update
 	void atualizaProdutosEOuro(int ano, int turno);
+
+	~Territorio_Inicial() {}
 };
 

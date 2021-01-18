@@ -15,6 +15,7 @@ class Logica
 	int turno;
 	int ano;
 	int pontuacao_final;
+
 	Mundo mundo;
 	Imperio_Jogador imperio_jogador;
 	Eventos eventos;
@@ -84,6 +85,7 @@ public:
 	~Logica() 
 	{
 		mundo.~Mundo();
+		eventos.~Eventos();
 		imperio_jogador.~Imperio_Jogador();
 	}
 };

@@ -1,6 +1,8 @@
 #pragma once
 #include "Territorio.h"
 
+using namespace std;
+
 class Continente : public Territorio
 {
 	int pontos_vitoria;
@@ -24,6 +26,6 @@ public:
 	virtual void atualizaProdutosEOuro(int ano, int turno) = 0;
 
 
-
+	~Continente() {}
 };
 

@@ -384,7 +384,7 @@ void Logica::invasao()
 	int resistencia = 0;
 
 	srand(time(nullptr));
-	sorte = (rand() % 6) + 1;
+	sorte = (rand() % 5) + 1;
 
 	if (ano == 1) {
 		forca_invasao = 2;

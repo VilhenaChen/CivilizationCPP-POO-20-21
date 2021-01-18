@@ -9,8 +9,6 @@
 #include <cstdlib>
 #include <ctime>
 
-
-
 using namespace std;
 
 class Imperio_Jogador
@@ -92,6 +90,10 @@ public:
 
 	~Imperio_Jogador() 
 	{
+		forca_militar.~Forca_Militar();
+		cofre.~Cofre();
+		armazem.~Armazem();
+		tecnologia.~Tecnologia();
 		for (auto it = territorios.begin(); it < territorios.end(); it++)
 		{
 			delete* it;

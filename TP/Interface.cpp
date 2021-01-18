@@ -269,14 +269,17 @@ bool Interface::Menu_Primeira_Fase() //Conquista/Passa
 						else {
 							if (com == "grava") {
 								//grava com aquele nome
+								cout << "Nao implementado" << endl;
 							}
 							else {
 								if (com == "ativa") {
 									//ativa o correspondente aquele nome
+									cout << "Nao implementado" << endl;
 								}
 								else {
 									if (com == "apaga") {
 										//apaga o correspondente aquele nome
+										cout << "Nao implementado" << endl;
 									}
 									else {
 										if (com == "toma") {
@@ -430,14 +433,17 @@ bool Interface::Menu_Segunda_Fase() //Recolha de produtos e ouro
 							else {
 								if (com == "grava") {
 									//grava com aquele nome
+									cout << "Nao implementado" << endl;
 								}
 								else {
 									if (com == "ativa") {
 										//ativa o correspondente aquele nome
+										cout << "Nao implementado" << endl;
 									}
 									else {
 										if (com == "apaga") {
 											//apaga o correspondente aquele nome
+											cout << "Nao implementado" << endl;
 										}
 										else {
 											if (com == "toma") {
@@ -584,14 +590,17 @@ bool Interface::Menu_Terceira_Fase(bool* militar, bool* tecnologia) //Compra de 
 						else {
 							if (com == "grava") {
 								//grava com aquele nome
+								cout << "Nao implementado" << endl;
 							}
 							else {
 								if (com == "ativa") {
 									//ativa o correspondente aquele nome
+									cout << "Nao implementado" << endl;
 								}
 								else {
 									if (com == "apaga") {
 										//apaga o correspondente aquele nome
+										cout << "Nao implementado" << endl;
 									}
 									else {
 										if (com == "toma") {
@@ -736,14 +745,17 @@ bool Interface::Menu_Quarta_Fase() //Fase de Evento
 					else {
 						if (com == "grava") {
 							//grava com aquele nome
+							cout << "Nao implementado" << endl;
 						}
 						else {
 							if (com == "ativa") {
 								//ativa o correspondente aquele nome
+								cout << "Nao implementado" << endl;
 							}
 							else {
 								if (com == "apaga") {
 									//apaga o correspondente aquele nome
+									cout << "Nao implementado" << endl;
 								}
 								else {
 									if (com == "toma") {

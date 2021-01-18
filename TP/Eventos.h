@@ -20,5 +20,6 @@ public:
 	//Evento Random
 	string getEventoRandom();
 
+	~Eventos() {}
 };
 

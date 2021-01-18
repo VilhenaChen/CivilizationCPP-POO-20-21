@@ -1,5 +1,8 @@
 #pragma once
 #include "Ilha.h"
+
+using namespace std;
+
 class Pescaria : public Ilha
 {
 	int resistencia;
@@ -24,5 +27,7 @@ public:
 
 	//update
 	void atualizaProdutosEOuro(int ano, int turno);
+
+	~Pescaria() {}
 };
 

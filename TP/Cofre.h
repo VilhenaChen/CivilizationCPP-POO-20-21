@@ -1,4 +1,7 @@
 #pragma once
+
+using namespace std;
+
 class Cofre
 {
 	const int capacidade_max = 5;

@@ -1,5 +1,8 @@
 #pragma once
 #include "Continente.h"
+
+using namespace std;
+
 class Duna : public Continente
 {
 	int resistencia;
@@ -24,5 +27,7 @@ public:
 
 	//update
 	void atualizaProdutosEOuro(int ano, int turno);
+
+	~Duna() {}
 };
 
